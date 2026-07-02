@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCart | Premium Global Marketplace</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Material Symbols Outlined -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="common-header"></div>
+
+
+    <!-- Hero Carousel -->
+    <section class="hero-section overflow-hidden">
+    <div class="swiper heroSwiper">
+        <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600" alt="iPhone">
+                <div class="overlay"></div>
+
+                <div class="hero-content container">
+                    <span class="badge bg-primary px-3 py-2 rounded-pill">
+                        NEW ARRIVAL
+                    </span>
+
+                    <h1>iPhone 17</h1>
+
+                    <p>
+                        Experience the future with Apple Intelligence,
+                        stunning design and next-level performance.
+                    </p>
+
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#" class="btn btn-warning btn-lg rounded-pill">
+                            Buy Now
+                        </a>
+
+                        <a href="#" class="btn btn-outline-light btn-lg rounded-pill">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1600" alt="Laptop">
+
+                <div class="overlay"></div>
+
+                <div class="hero-content container">
+                    <span class="badge bg-danger px-3 py-2 rounded-pill">
+                        HOT DEAL
+                    </span>
+
+                    <h1>Premium Laptops</h1>
+
+                    <p>
+                        Discover powerful laptops for gaming,
+                        business and creative professionals.
+                    </p>
+
+                    <a href="#" class="btn btn-warning btn-lg rounded-pill">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1600" alt="Fashion">
+
+                <div class="overlay"></div>
+
+                <div class="hero-content container">
+                    <span class="badge bg-success px-3 py-2 rounded-pill">
+                        TRENDING
+                    </span>
+
+                    <h1>Fashion Collection</h1>
+
+                    <p>
+                        Explore premium fashion, watches,
+                        accessories and lifestyle products.
+                    </p>
+
+                    <a href="#" class="btn btn-outline-light btn-lg rounded-pill">
+                        Explore Collection
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <main class="container my-5">
+        <!-- Category Grid -->
+        <section class="mb-5" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold m-0">Shop by Category</h2>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All &rarr;</a>
+            </div>
+            <div class="row row-cols-3 row-cols-md-6 text-center g-4">
+                <div class="col">
+                    <a href="#" class="category-item text-dark">
+                        <div class="category-icon">
+                            <span class="material-symbols-outlined fs-1 text-primary">devices</span>
+                        </div>
+                        <span class="fw-semibold">Electronics</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#" class="category-item text-dark">
+                        <div class="category-icon">
+                            <span class="material-symbols-outlined fs-1 text-primary">apparel</span>
+                        </div>
+                        <span class="fw-semibold">Fashion</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#" class="category-item text-dark">
+                        <div class="category-icon">
+                            <span class="material-symbols-outlined fs-1 text-primary">chair</span>
+                        </div>
+                        <span class="fw-semibold">Home</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#" class="category-item text-dark">
+                        <div class="category-icon">
+                            <span class="material-symbols-outlined fs-1 text-primary">content_cut</span>
+                        </div>
+                        <span class="fw-semibold">Beauty</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#" class="category-item text-dark">
+                        <div class="category-icon">
+                            <span class="material-symbols-outlined fs-1 text-primary">fitness_center</span>
+                        </div>
+                        <span class="fw-semibold">Sports</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#" class="category-item text-dark">
+                        <div class="category-icon">
+                            <span class="material-symbols-outlined fs-1 text-primary">smart_toy</span>
+                        </div>
+                        <span class="fw-semibold">Toys</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash Sale -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 border-bottom pb-3">
+                <div class="d-flex align-items-center gap-3">
+                    <h2 class="fw-bold m-0 d-flex align-items-center">
+                        <span class="material-symbols-outlined text-warning fs-2 me-2">bolt</span>
+                        Flash Sales
+                    </h2>
+                    <div class="d-flex align-items-center ms-3">
+                        <span class="text-muted me-2">Ends in:</span>
+                        <div class="d-flex gap-1 align-items-center">
+                            <span class="bg-dark text-white p-1 rounded fw-bold">08</span>
+                            <span class="fw-bold">:</span>
+                            <span class="bg-dark text-white p-1 rounded fw-bold">45</span>
+                            <span class="fw-bold">:</span>
+                            <span class="bg-dark text-white p-1 rounded fw-bold">12</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="text-primary fw-bold mt-3 mt-md-0">View All Deals</a>
+            </div>
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-3">
+                <!-- Product 1 -->
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 position-relative">
+                        <span class="discount-badge">-30%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5o2v1xv3xYW_y6Z_fm-R9CUj4mpGKLyifqqgcBQ_9vkTEj0dzqB2tdYenOlFr-1bJKfRoc4vQwDGbjataWf4SP3K1-A28-531tq6GhcKwr6AZp6me2RX-Hw0E89NvRV3tQKUOta_HxbeUsAHF0zGDdt9ouq1mz3Ex_3Jog39lvfXruffx3uuFuskQjopGJNnK8Wj-I4V8DpXCcDxwaOuhVUiWsLOFtPcmDiwwwIq7SLEifx1DuykI3ltbt-QgOXP-i3-9_qUbLVs" class="card-img-top product-img" alt="Sony Headphones">
+                        <div class="card-body d-flex flex-column">
+                            <p class="text-muted small mb-1">Electronics</p>
+                            <h5 class="card-title text-truncate">Sony WH-1000XM5</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3 gap-2">
+                                    <span class="fs-4 fw-bold text-dark">$279.00</span>
+                                    <span class="text-muted text-decoration-line-through">$399.00</span>
+                                </div>
+                                <button class="btn btn-outline-primary w-100 fw-bold">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 position-relative">
+                        <span class="discount-badge">-15%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOGBZ7beOGkHyIEkg03qM5REW6PpiAkSGwZXQG7tRynZ7BwfJyQ7buZ-MPf4J4HsQuclPM8c-2i5srYNLWPpdUmPeWHlqKyFxJvhBeeNunQtEvlTIVz1kvMzR1HQiqwOp9y28NE5csHkQL207mGnmv2C9c7cM27Stw-iExIDKk4OHizDTjAimG3Bz0CEZ_neheBPaMm99I9CSIyKI7tbHduZoeBZ74g7BVlB6NIPxZMoYZQhk2RzQEbsNNXUsjXsOIiRc0v8PXDQg" class="card-img-top product-img" alt="Galaxy Watch">
+                        <div class="card-body d-flex flex-column">
+                            <p class="text-muted small mb-1">Wearables</p>
+                            <h5 class="card-title text-truncate">Galaxy Watch 6 Pro</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3 gap-2">
+                                    <span class="fs-4 fw-bold text-dark">$339.15</span>
+                                    <span class="text-muted text-decoration-line-through">$399.00</span>
+                                </div>
+                                <button class="btn btn-outline-primary w-100 fw-bold">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 position-relative">
+                        <span class="discount-badge">-25%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDROZQqlxBuMFBvIxk1M8Dv3tnhEp4KHZui1AtaEO2t9idvk2XVuQM2bb7mdEmH28v0HzCjbHID36WHncNOXYTqlNVajG6qchzHekCPgYl4O6lxVtQM9decP-j98dLx2XJbf_ZutHtZtH3_JQoQdPpwJlBC_MP5S-v5XLAQFd0C9NwSrdLXHv_4d00E6hGb7E-G7K2r6NTNybyf7pVHL_UBt9BE1EBH2xsEDWMlk2R4YZQyXu0ojf1X8sIIx8ISMUQ3i_Tpj_S4BAc" class="card-img-top product-img" alt="Keychron Keyboard">
+                        <div class="card-body d-flex flex-column">
+                            <p class="text-muted small mb-1">Accessories</p>
+                            <h5 class="card-title text-truncate">Keychron Q1 Max</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3 gap-2">
+                                    <span class="fs-4 fw-bold text-dark">$149.00</span>
+                                    <span class="text-muted text-decoration-line-through">$199.00</span>
+                                </div>
+                                <button class="btn btn-outline-primary w-100 fw-bold">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 position-relative">
+                        <span class="discount-badge">-10%</span>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL8o9KPaevmN-mFO7x43brDLjAxvQ4IibBOhB9u_FyFFtLzs1b9UA03ME1eJHag3f2jyH0oxXP2PLvGqW9qvzYF6feeHGXxR2E-DeDqrgz4y7mjySMZ4mt7a_CZnvACOIQXfcP65BSyK53t9j86JUaM460S_TbdmhvoAvP9cOKdRQyBas9N62qXcng4a8zNoBWc35xvu7kqcldvaPv1m9LsqNPVLsE15OxH53eSVg2UZFt7T_vWH_Q8MXkMuMT3JfG2jt7KmDFwBQ" class="card-img-top product-img" alt="Sony Camera">
+                        <div class="card-body d-flex flex-column">
+                            <p class="text-muted small mb-1">Cameras</p>
+                            <h5 class="card-title text-truncate">Sony Alpha A7 IV</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3 gap-2">
+                                    <span class="fs-4 fw-bold text-dark">$2,249.00</span>
+                                    <span class="text-muted text-decoration-line-through">$2,499.00</span>
+                                </div>
+                                <button class="btn btn-outline-primary w-100 fw-bold">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Now -->
+        <section class="mb-5" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="fw-bold mb-4">Trending Now</h2>
+            <div class="row row-cols-2 row-cols-md-4 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQVpl9y1dn0ie9E2v1-4NnJSeJvBwmNz3YlN7GO3a9uuR56Wno3CzoTLiwiQ7j0tbO3ZsZlwuYeWRbtxgyDolEKaer597vQproGDK2FtlS3vNBzDtUe5vEpiltIGzMRGwK8bcfaLrWaPcC4MNEJYWNpfQaWseDTlAnzjluTVyWmp-CRzxqPrW3k_JeZ-_F4CXRRifzAWFXsIipQK2gYfkd0lZ7tFtm23HbFU4OeANsTxsXWv0ZKRem5QDrn2_fr6oFhJG9jbaQjhg" class="card-img-top product-img" alt="Scooter">
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">CityLine Pro E-Scooter</h6>
+                            <p class="text-primary fw-bold m-0">$549.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOWYxwd0KZnGmjHGWK5GMuteCAIsnZZ0QDlNgqwuewwYZGSFcaO7MbghY3RxAT-QyYz48GoMsKknsyuyAiGFdHVR1Q8-E8mi4JbThvkvHQIGpqGgJ9_1RRnTv_AHAkz0WF2doxM1VM-k_w_aVvxJLuR607tsb0s-m-8EF8c48fcN1ekDvh4Uap911ILPIJn8zUYsAWACMPW5OfXnqvW8zCc0sEpPdyFYpG7UWCMFDJXG7_18hYOhKWR5h2gWzrwei7ODDqnTe-NpI" class="card-img-top product-img" alt="Lamp">
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">Aura Glow Floor Lamp</h6>
+                            <p class="text-primary fw-bold m-0">$189.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHy3IQTYzbOaK7OkZF2YIsfjDjYMBZjxbh41PsL2bNmJ7kTp_GdcOchvj1n0ZDUs0sVfdWdNgLFB7Qo-rPnsT4pR5NC7fAw0GtVzSXWItAv6QR6KYuVK6mO9zQL28lYh-XT9A8MqCRnP8irOqMWkcZwBG2TiH9DlbPwpYdl0jY3fn-yf6hYRlebUAxMSYaC9VQ92thfc7vgPYeIPu9LLvyMnk4cQ" class="card-img-top product-img" alt="Mouse">
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">Pro Gaming Mouse</h6>
+                            <p class="text-primary fw-bold m-0">$79.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwWdC6hyYfBtjk8dafhNk2ntbmoc3lJFhdUPHOobSpy6LfixjZg6Bmnv51GcHD3aNIdFzopx-P4OvgXb1zS4acuhmNHIs8RFzeocaR9Ey9JtKJE51SXWe48Yxtuv33V_p4XgbOdfKmItH09KnvjHwO2gEKoyfoi6CNdO6_Qnr5WSugjQUeFMC9p0LiqUrp60pDVfJb7jOC2v_uS0fknSiz43rDypIcz0SoLw8CQHh6iWEzERKNF-kgMk8mAVSfYQBzBZ2v3yBX8mA" class="card-img-top product-img" alt="Cream">
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">Organic Face Cream</h6>
+                            <p class="text-primary fw-bold m-0">$45.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Offers -->
+        <section class="mb-5" data-aos="fade-up" data-aos-duration="800">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card text-white h-100 p-3 d-flex flex-row align-items-center justify-content-between" style="background-color: #00529B;">
+                        <div>
+                            <h5 class="fw-bold mb-1">SBI Credit Card</h5>
+                            <p class="mb-0 small">10% Instant Discount*</p>
+                        </div>
+                        <span class="material-symbols-outlined fs-1">credit_card</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white h-100 p-3 d-flex flex-row align-items-center justify-content-between" style="background-color: #B22222;">
+                        <div>
+                            <h5 class="fw-bold mb-1">ICICI Bank</h5>
+                            <p class="mb-0 small">5% Cashback on EMI</p>
+                        </div>
+                        <span class="material-symbols-outlined fs-1">account_balance</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white h-100 p-3 d-flex flex-row align-items-center justify-content-between" style="background-color: #003366;">
+                        <div>
+                            <h5 class="fw-bold mb-1">HDFC Bank</h5>
+                            <p class="mb-0 small">No Cost EMI on top brands</p>
+                        </div>
+                        <span class="material-symbols-outlined fs-1">payments</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Best Sellers</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQVpl9y1dn0ie9E2v1-4NnJSeJvBwmNz3YlN7GO3a9uuR56Wno3CzoTLiwiQ7j0tbO3ZsZlwuYeWRbtxgyDolEKaer597vQproGDK2FtlS3vNBzDtUe5vEpiltIGzMRGwK8bcfaLrWaPcC4MNEJYWNpfQaWseDTlAnzjluTVyWmp-CRzxqPrW3k_JeZ-_F4CXRRifzAWFXsIipQK2gYfkd0lZ7tFtm23HbFU4OeANsTxsXWv0ZKRem5QDrn2_fr6oFhJG9jbaQjhg" class="card-img-top product-img" alt="Product">
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">CityLine Pro E-Scooter</h6>
+                            <p class="fw-bold text-dark">$549.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOWYxwd0KZnGmjHGWK5GMuteCAIsnZZ0QDlNgqwuewwYZGSFcaO7MbghY3RxAT-QyYz48GoMsKknsyuyAiGFdHVR1Q8-E8mi4JbThvkvHQIGpqGgJ9_1RRnTv_AHAkz0WF2doxM1VM-k_w_aVvxJLuR607tsb0s-m-8EF8c48fcN1ekDvh4Uap911ILPIJn8zUYsAWACMPW5OfXnqvW8zCc0sEpPdyFYpG7UWCMFDJXG7_18hYOhKWR5h2gWzrwei7ODDqnTe-NpI" class="card-img-top product-img" alt="Product">
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">Aura Glow Floor Lamp</h6>
+                            <p class="fw-bold text-dark">$189.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOGBZ7beOGkHyIEkg03qM5REW6PpiAkSGwZXQG7tRynZ7BwfJyQ7buZ-MPf4J4HsQuclPM8c-2i5srYNLWPpdUmPeWHlqKyFxJvhBeeNunQtEvlTIVz1kvMzR1HQiqwOp9y28NE5csHkQL207mGnmv2C9c7cM27Stw-iExIDKk4OHizDTjAimG3Bz0CEZ_neheBPaMm99I9CSIyKI7tbHduZoeBZ74g7BVlB6NIPxZMoYZQhk2RzQEbsNNXUsjXsOIiRc0v8PXDQg" class="card-img-top product-img" alt="Product">
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">Galaxy Watch 6 Pro</h6>
+                            <p class="fw-bold text-dark">$339.15</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwWdC6hyYfBtjk8dafhNk2ntbmoc3lJFhdUPHOobSpy6LfixjZg6Bmnv51GcHD3aNIdFzopx-P4OvgXb1zS4acuhmNHIs8RFzeocaR9Ey9JtKJE51SXWe48Yxtuv33V_p4XgbOdfKmItH09KnvjHwO2gEKoyfoi6CNdO6_Qnr5WSugjQUeFMC9p0LiqUrp60pDVfJb7jOC2v_uS0fknSiz43rDypIcz0SoLw8CQHh6iWEzERKNF-kgMk8mAVSfYQBzBZ2v3yBX8mA" class="card-img-top product-img" alt="Product">
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">Organic Face Cream</h6>
+                            <p class="fw-bold text-dark">$45.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Deals on Electronics -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Top Deals on Electronics</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <!-- 4 items -->
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5o2v1xv3xYW_y6Z_fm-R9CUj4mpGKLyifqqgcBQ_9vkTEj0dzqB2tdYenOlFr-1bJKfRoc4vQwDGbjataWf4SP3K1-A28-531tq6GhcKwr6AZp6me2RX-Hw0E89NvRV3tQKUOta_HxbeUsAHF0zGDdt9ouq1mz3Ex_3Jog39lvfXruffx3uuFuskQjopGJNnK8Wj-I4V8DpXCcDxwaOuhVUiWsLOFtPcmDiwwwIq7SLEifx1DuykI3ltbt-QgOXP-i3-9_qUbLVs" class="card-img-top product-img" alt="Sony Headphones">
+                        <div class="card-body">
+                            <h6 class="card-title">Sony WH-1000XM5</h6>
+                            <span class="badge bg-success mb-2">Save $120</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVjYbKokfWz-aJ-Fcn-2c0giqr8eEmnPx6YWOR8Knx-k1negL2zJ2Q-X2-fbza_uZPFcoSsZbDGM6vW1cP0hmiLVvZNU15l0T6-2wBRc0LRsxDvRWdI99vSyFhfpkAsLs-GDCqk9IGIoT5OoWMSmBeE5VPzjZG4Jc4OTcq--rXnvt8jMctUSJIUKlt-m7k_8OUp91K_On6RIlWHtqwuGVZ8mrwM46_aVj2nvuuLAQkdKvkKkdI_uiw4oB3Ug5lOxBpTyRLBQhgaU" class="card-img-top product-img" alt="GPU">
+                        <div class="card-body">
+                            <h6 class="card-title">RTX 4090 Graphics Card</h6>
+                            <span class="badge bg-success mb-2">Save $300</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4sO5BOWfjVy1ZeJu9361RvFZEZaoHWOkA4LFyuXE_S7PpkX4cCkqe7AZr1E2FF5I_tbR-UI2rvvEoDSLM0RE8nxsCsyraVsXFuJdtJ0nQTtL_DvP7hVj4VVha3p5taCupnNokZSReOcoMjR8rq2g88qw6KKVVUGqqG9OgRozeYO9ePHf8ul5Pakmue8ZQwKNirD3DAaW7gg_K85hVQ2kEKpMO97cq-CLLIMuFRoompA0VsgX4q71G9p3xFRIPMlZX-0OU4Cr6pVs" class="card-img-top product-img" alt="Monitor">
+                        <div class="card-body">
+                            <h6 class="card-title">Curved Gaming Monitor</h6>
+                            <span class="badge bg-success mb-2">Save $80</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHy3IQTYzbOaK7OkZF2YIsfjDjYMBZjxbh41PsL2bNmJ7kTp_GdcOchvj1n0ZDUs0sVfdWdNgLFB7Qo-rPnsT4pR5NC7fAw0GtVzSXWItAv6QR6KYuVK6mO9zQL28lYh-XT9A8MqCRnP8irOqMWkcZwBG2TiH9DlbPwpYdl0jY3fn-yf6hYRlebUAxMSYaC9VQ92thfc7vgPYeIPu9LLvyMnk4cQ" class="card-img-top product-img" alt="Mouse">
+                        <div class="card-body">
+                            <h6 class="card-title">Pro Gaming Mouse</h6>
+                            <span class="badge bg-success mb-2">Save $20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fashion Top Picks -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Fashion Top Picks</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-UkfJv7pbU3ArkGJy0nc40UBiC8ZJFvdMhUH35cso17Ljaww0W63IYSE3U8OF8frfuBFvskPXBK-2LBMKVnyXPrrh8ZPToGE1IBpZldT7EP5RnvvBDVaEcsKROWiBsJbloKytJlPFHY-RX50mfO7ZEe5cmmB7CZSdwsKGXu4W95zcKHF2bwlRyPaOWvCZsE_QPi31dXZN0dYYQNFNsF4hUSKVQuR3ZV37IwnWEag8dGh6lfSCaLvajpUht3OCczbtYyjkPVJwUpo" class="card-img-top product-img" alt="Scarf">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Designer Silk Scarf</h6>
+                            <p class="text-primary fw-bold">Min. 40% Off</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtHuLYMMCbZGWf50sqPUu683JoQudF-jOZWzDQgMXK5b5EU-KHpTVXcGZ73us8yvc1HoNWIzvFQBKNb8T7ZR7ZvjcsNPHXaAL5nCTmoZ0S7bCMfVRo3EvFEtGVb3JIuzywJ4gkB2xfQbROW9lAXDOp4s7JQ2aRqPIL3Q-KGRjbwJ2MICOU5E6ZCuGFjHiHPvjiQcYFpSLvmPjAVqGDBW4Ssz55t7zx8-GIsoT-8QF3bXfWb0_sXFOey1_ebBdyB8SCo0z5eqwIExE" class="card-img-top product-img" alt="Bag">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Luxury Leather Handbag</h6>
+                            <p class="text-primary fw-bold">Min. 30% Off</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Men's Casuals</h5>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Summer Dresses</h5>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home & Kitchen Essentials -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Home & Kitchen Essentials</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmmN84lp_3EnHPD5LnJk35-Q-uAgHI3EhZxWDBXcRqeMa7Ggs2tj9tGH0aHyVvmbqY9MI0U9laxAEd4ZpSKkgMDf7Nvdxk9NHpYIb4URrrLsdqpitzucNfMIzjQ6CX9yTpxlQ60NsNftPpPSa-7U7jXzk_nbftsKkcVCKodEBe-rJ6n6EuPLCitYlptgAV-GP05DTsew9Jf1qraQcrzhljBDYSoW9jiOxHGgnqe2KnX0W0bGRFnKmCbbPcxnZVzfqmujEaOHGJrBM" class="card-img-top product-img" alt="Kitchenware">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Bamboo Kitchenware Set</h6>
+                            <p class="text-dark fw-bold">$35.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfcZ7Q6CcjHVfK_t_JsRmoAiB2uQLtq4N8stHLygLmC9jVxvAWOnN3E72QMcDKN3tZ6ODaflvsNjjBKliRQ7nU-_K0IGlQ66O00vbBiqqCopev7veHqt2E7uF_r1NBdiHOQz8yBxaosuDtbMotHDs66K-_i4kUbdj_Gp2yPgbNCSomgYBKVijmhBX-6yilxQ7njRk-Ng4C-cO4SN1knL_LM1J4H6n_jtiecy8G36CsJtFdCtAXZDJFH6xNFa-yoYZ0wqkVYdCD_-I" class="card-img-top product-img" alt="Blanket">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Organic Cotton Blanket</h6>
+                            <p class="text-dark fw-bold">$28.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">blender</span>
+                            <h5 class="fw-bold">Mixers & Juicers</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">microwave</span>
+                            <h5 class="fw-bold">Microwaves</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beauty & Personal Care -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Beauty & Personal Care</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzbLLLEZzhndirTHfvXEK6FfgA6VQwgER08Y8dBGZkeI80ZnHtE6hwr2bhsQmpV8N7jEtQVfOS5OsAjaIfMZDBju_Z_-O-j5VY2giijQOdTYXCsk5UL_Bk49G71Y_6dF4xrpFv_3hSBizFnjyzSe_ozYmjCRCldBjEgIMxnAfwvhj7yl8Uwj9XGd5iO1P2JJJJQuHUtdrCQs8V2SjNfoDT9mJ7dv-I5PXYjONqm4eQ9QSAekj3YQULrD3seioYnnm2zP7BXneNwew" class="card-img-top product-img" alt="Serum">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Premium Glass Serum</h6>
+                            <p class="text-primary fw-bold">Up to 25% Off</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Skincare Sets</h5>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Hair Care</h5>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Fragrances</h5>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books, Media & Music -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Books, Media & Music</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">menu_book</span>
+                            <h5 class="fw-bold">Bestselling Books</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">headphones</span>
+                            <h5 class="fw-bold">Audiobooks</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">movie</span>
+                            <h5 class="fw-bold">Movies & Shows</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">music_note</span>
+                            <h5 class="fw-bold">Vinyl Records</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports & Fitness Gear -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Sports & Fitness Gear</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">sports_tennis</span>
+                            <h5 class="fw-bold">Racquet Sports</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">fitness_center</span>
+                            <h5 class="fw-bold">Gym Equipment</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">directions_run</span>
+                            <h5 class="fw-bold">Running Shoes</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mb-2">pedal_bike</span>
+                            <h5 class="fw-bold">Cycling</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toys & Games -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Toys & Games</h3>
+                <a href="#" class="text-primary fw-bold text-decoration-none">View All</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Action Figures</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Board Games</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Educational Toys</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold">Outdoor Play</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended For You -->
+        <section class="mb-5 bg-white p-4 rounded shadow-sm" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h3 class="fw-bold m-0">Recommended For You</h3>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 flex-nowrap overflow-auto hide-scrollbar pb-2">
+                <div class="col" style="min-width: 280px;">
+                    <div class="card h-100 border-0 shadow-sm bg-light d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold text-muted">Sign in for personalized recommendations</h5>
+                            <button class="btn btn-warning fw-bold mt-2">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="common-footer"></div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</body>
+</html>
