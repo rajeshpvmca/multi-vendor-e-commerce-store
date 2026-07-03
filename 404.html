@@ -189,17 +189,24 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+        @media (max-width: 1024px) {
+            .error-code { font-size: 140px; }
+            .error-title { font-size: 2rem; }
+            .error-container { padding: 3.5rem 2.5rem; width: 85%; }
+            .error-illustration { font-size: 4.5rem; }
+        }
+
         @media (max-width: 768px) {
             .error-code { font-size: 120px; }
             .error-title { font-size: 1.8rem; }
-            .error-container { padding: 3rem 2rem; border-radius: 30px; }
+            .error-container { padding: 3rem 2rem; border-radius: 30px; width: 90%; }
         }
 
         @media (max-width: 576px) {
             .error-code { font-size: 100px; letter-spacing: -2px; }
             .error-title { font-size: 1.4rem; }
             .error-desc { font-size: 1rem; margin-bottom: 2rem; }
-            .error-container { padding: 2.5rem 1.5rem; }
+            .error-container { padding: 1.5rem 1.5rem; }
             .actions { flex-direction: column; gap: 15px; }
             .btn-glow { width: 100%; justify-content: center; }
             .error-illustration { font-size: 4rem; }
