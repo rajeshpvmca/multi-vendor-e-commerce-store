@@ -148,7 +148,6 @@ a {
   border: none;
   border-radius: 12px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  height: 100%;
   overflow: hidden;
 }
 .card:hover {
@@ -450,4 +449,101 @@ main h2.fw-bold::before, main h3.fw-bold::before {
 }
 .featured-category-card:hover::before {
     opacity: 0.9;
+}
+
+/* About, Blog, and Contact Specific Styles */
+.hover-text-primary {
+    transition: color 0.3s ease;
+}
+.hover-text-primary:hover {
+    color: var(--primary-color) !important;
+}
+
+.blog-card img {
+    transition: transform 0.5s ease;
+}
+.blog-card:hover img {
+    transform: scale(1.05);
+}
+
+.team-card {
+    transition: transform 0.3s ease;
+}
+.team-card:hover {
+    transform: translateY(-10px);
+}
+.team-card .team-img {
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+.team-card:hover .team-img {
+    box-shadow: 0 10px 20px rgba(40, 116, 240, 0.3) !important;
+    border-color: var(--primary-color);
+}
+
+.custom-input {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.custom-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(40, 116, 240, 0.15);
+}
+
+/* Team Hover Overlay Styles */
+.team-img-wrapper {
+    transition: all 0.3s ease;
+}
+.team-social-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.team-card:hover .team-social-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+.social-icon {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.social-icon:hover {
+    transform: scale(1.2);
+    color: var(--primary-color) !important;
+}
+
+/* Glassmorphism & Blog UI Overhaul Styles */
+.glass-panel {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+.featured-blog-card:hover .glass-panel {
+    background: rgba(0, 0, 0, 0.5);
+}
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.text-shadow-sm {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.blog-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Responsive Overrides */
+.featured-post-img {
+    height: 250px;
+}
+@media (min-width: 768px) {
+    .featured-post-img {
+        height: 450px;
+    }
 }
