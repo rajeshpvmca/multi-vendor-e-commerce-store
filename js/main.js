@@ -21,6 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.remove('active');
             }
         });
+
+        // Initialize Custom Full-Screen Mobile Menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('navbarSupportedContent');
+        const menuCloseBtn = document.getElementById('menuCloseBtn');
+
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileMenu.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        }
+        if (menuCloseBtn && mobileMenu) {
+            menuCloseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileMenu.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        }
     }).catch(error => console.error("Error loading header/footer:", error));
 
     // Navbar scroll effect
