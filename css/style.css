@@ -261,62 +261,207 @@ main h2.fw-bold::before, main h3.fw-bold::before {
   color: white !important;
 }
 
+/* --- 3D Hero Section --- */
 .hero-section {
     position: relative;
+    background-color: #0f1016;
+}
+
+/* Animated Glowing Background for the whole hero */
+.hero-bg-animated {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, #0b0c10 0%, #1a1a24 100%);
+    overflow: hidden;
+}
+
+.hero-bg-animated::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(40,116,240,0.15) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: floatOrb 10s infinite alternate ease-in-out;
+}
+
+.hero-bg-animated::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(251,100,27,0.1) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: floatOrb 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
 }
 
 .heroSwiper {
     height: 90vh;
+    min-height: 700px;
 }
 
 .heroSwiper .swiper-slide {
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
-.heroSwiper .swiper-slide img {
+/* 3D Floating Product Styles */
+.hero-image-wrapper {
+    perspective: 1500px;
     width: 100%;
-    height: 90vh;
-    object-fit: cover;
-    transform: scale(1.0);
-    transition: transform 10s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.heroSwiper .swiper-slide-active img {
-    transform: scale(1.1);
-    transition: transform 10s ease;
+.floating-3d-product {
+    max-width: 90%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 20px;
+    /* We make it look like a glass card in case it's not a transparent PNG */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255,255,255,0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(5px);
+    
+    animation: rotate3D 12s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,.75),
-        rgba(0,0,0,.25)
-    );
+.floating-3d-product.delay-1 { animation-delay: -4s; }
+.floating-3d-product.delay-2 { animation-delay: -8s; }
+
+@keyframes rotate3D {
+    0% { transform: translateY(0) rotateX(5deg) rotateY(-15deg); }
+    50% { transform: translateY(-30px) rotateX(-5deg) rotateY(15deg); }
+    100% { transform: translateY(0) rotateX(5deg) rotateY(-15deg); }
 }
 
+/* Split Layout Text Content */
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
-    z-index: 5;
     color: #fff;
-    max-width: 650px;
+    max-width: 600px;
+    z-index: 5;
+    position: relative;
+    padding: 2rem 0;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin: 15px 0;
+    background: linear-gradient(to right, #ffffff, #dcdcdc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    line-height: 1.1;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: rgba(255,255,255,.85);
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+/* Premium Hero UI Elements */
+.hero-content span.badge {
+    padding: 8px 18px !important;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.hero-content .btn {
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 14px 32px;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px -5px rgba(0,0,0,0.5);
+}
+
+.hero-content .btn-warning {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    border: none;
+    color: white;
+}
+.hero-content .btn-warning:hover {
+    box-shadow: 0 15px 30px -5px rgba(229, 46, 113, 0.6);
+}
+
+.hero-content .btn-outline-light {
+    background: rgba(255,255,255,0.05) !important;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.hero-content .btn-outline-light:hover {
+    background: rgba(255,255,255,0.15) !important;
+    color: #fff !important;
+    border-color: #fff;
+}
+
+/* Swiper Controls */
+.swiper-button-next,
+.swiper-button-prev {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #fff;
+}
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: .4;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.scroll-indicator:hover { color: #fff; }
+.scroll-indicator span {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
 }
 
 /* Advanced Hero Content Animations */
@@ -325,92 +470,38 @@ main h2.fw-bold::before, main h3.fw-bold::before {
     transform: translateY(40px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.heroSwiper .swiper-slide-active .hero-content > span.badge {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
-}
-
-.heroSwiper .swiper-slide-active .hero-content > h1 {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.4s;
-}
-
-.heroSwiper .swiper-slide-active .hero-content > p {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.6s;
-}
-
+.heroSwiper .swiper-slide-active .hero-content > span.badge { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.heroSwiper .swiper-slide-active .hero-content > h1 { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.heroSwiper .swiper-slide-active .hero-content > p { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
 .heroSwiper .swiper-slide-active .hero-content > div.d-flex,
-.heroSwiper .swiper-slide-active .hero-content > a.btn {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.8s;
+.heroSwiper .swiper-slide-active .hero-content > a.btn { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .heroSwiper {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0 40px;
+    }
+    .hero-content {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .hero-content h1 { font-size: 3.5rem; }
+    .hero-image-wrapper {
+        margin-top: 30px;
+    }
+    .floating-3d-product {
+        max-height: 50vh;
+    }
+    .swiper-button-next, .swiper-button-prev { display: none; }
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: #fff;
-}
-
-.swiper-pagination-bullet {
-    background: #fff;
-    opacity: .6;
-}
-
-.swiper-pagination-bullet-active {
-    opacity: 1;
-}
-
-@media (max-width:991px){
-
-    .heroSwiper,
-    .heroSwiper .swiper-slide img{
-        height:75vh;
-    }
-
-    .hero-content{
-        left:20px;
-        right:20px;
-        max-width:100%;
-        text-align:center;
-    }
-
-    .hero-content h1{
-        font-size:2.5rem;
-    }
-
-    .hero-content p{
-        font-size:1rem;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev{
-        display:none;
-    }
-}
-
-@media (max-width:576px){
-
-    .heroSwiper,
-    .heroSwiper .swiper-slide img{
-        height:65vh;
-    }
-
-    .hero-content h1{
-        font-size:2rem;
-    }
-
-    .hero-content p{
-        font-size:.95rem;
-    }
-
-    .hero-content .btn{
-        width:100%;
-    }
+@media (max-width: 576px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .hero-content .btn { width: 100%; margin-bottom: 10px; }
+    .floating-3d-product { max-height: 40vh; }
 }
 
 /* Modern Page Hero (Inner Pages) */
