@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { padding: 1.5rem; background-color: #f8f9fa; font-family: 'Inter', sans-serif; }
+        .dash-card { border: none; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .text-primary-theme { color: var(--primary-color) !important; }
+        .table > :not(caption) > * > * { padding: 1rem; border-bottom-color: #f1f1f1; }
+        .badge-status { border-radius: 8px; padding: 5px 10px; font-weight: 600; font-size: 0.8rem; }
+        .status-success { background-color: rgba(25, 135, 84, 0.1); color: #198754; }
+        .status-failed { background-color: rgba(220, 53, 69, 0.1); color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0 text-primary-theme">Delivery History</h3>
+            <button class="btn btn-outline-secondary rounded-pill px-4"><i class="fas fa-file-export me-2"></i>Export Report</button>
+        </div>
+        
+        <div class="card dash-card">
+            <div class="card-header bg-white border-0 py-4 d-flex gap-3 align-items-center">
+                <div class="input-group" style="width: 250px;">
+                    <span class="input-group-text bg-light border-0"><i class="fas fa-search text-muted"></i></span>
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search Order ID...">
+                </div>
+                <input type="date" class="form-control bg-light border-0" style="width: 150px;">
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-muted small border-0 px-4">Order ID</th>
+                                <th class="text-muted small border-0">Customer</th>
+                                <th class="text-muted small border-0">Address</th>
+                                <th class="text-muted small border-0">Delivered At</th>
+                                <th class="text-muted small border-0">Status</th>
+                                <th class="text-muted small border-0 px-4 text-end">Proof</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold px-4">#ORD-9850</td>
+                                <td>Sarah Williams</td>
+                                <td class="small text-muted">901 Maple Blvd, NY</td>
+                                <td>Oct 23, 14:30</td>
+                                <td><span class="badge-status status-success">Successful</span></td>
+                                <td class="px-4 text-end">
+                                    <button class="btn btn-sm btn-light text-primary-theme" title="View Signature"><i class="fas fa-signature"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold px-4">#ORD-9842</td>
+                                <td>David Lee</td>
+                                <td class="small text-muted">22 Elm Street, NY</td>
+                                <td>Oct 23, 11:15</td>
+                                <td><span class="badge-status status-success">Successful</span></td>
+                                <td class="px-4 text-end">
+                                    <button class="btn btn-sm btn-light text-primary-theme" title="View Photo"><i class="fas fa-camera"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold px-4">#ORD-9830</td>
+                                <td>Emma Johnson</td>
+                                <td class="small text-muted">55 Birch Rd, NY</td>
+                                <td>Oct 22, 16:45</td>
+                                <td><span class="badge-status status-failed" title="Customer not home">Failed</span></td>
+                                <td class="px-4 text-end">
+                                    <span class="text-muted small">No Proof</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer bg-white border-0 py-3 text-center">
+                <p class="text-muted small mb-0">Showing history for October 2026</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
