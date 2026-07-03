@@ -11,7 +11,7 @@
     <style>
         body { padding: 1.25rem; }
         .profile-header {
-            background: linear-gradient(135deg, var(--bs-primary), var( --bs-success));
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 20px;
             padding: 2.5rem 1.25rem;
             text-align: center;
@@ -48,14 +48,18 @@
             width: 100%;
         }
         .form-ctrl:focus {
-            border-color: var(--secondary) !important;
-            box-shadow: 0 0 0 4px rgba(65, 105, 0, 0.1) !important;
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 4px rgba(0, 82, 155, 0.1) !important;
             outline: none !important;
         }
         .form-ctrl:read-only {
             background: #f1f5f9 !important;
             cursor: not-allowed;
         }
+        .btn-primary-theme { background-color: var(--primary-color) !important; color: #fff !important; border: none; padding: 10px 24px; border-radius: 50rem; font-weight: 600; transition: all 0.3s; }
+        .btn-primary-theme:hover { background-color: #003d73 !important; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 82, 155, 0.2); }
+        .btn-outline-theme { background-color: transparent !important; color: var(--primary-color) !important; border: 2px solid var(--primary-color) !important; padding: 8px 24px; border-radius: 50rem; font-weight: 600; transition: all 0.3s; }
+        .btn-outline-theme:hover { background-color: var(--primary-color) !important; color: #fff !important; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 82, 155, 0.2); }
         .password-field-wrapper {
             position: relative;
         }
@@ -79,7 +83,7 @@
             transition: color 0.3s ease;
         }
         .eye-toggle-btn:hover {
-            color: var(--secondary);
+            color: var(--secondary-color);
         }
         @media (max-width: 600px) {
             .form-row { grid-template-columns: 1fr; }
@@ -118,7 +122,7 @@
                     <input type="text" class="form-ctrl" id="editCountry" placeholder="Your country">
                 </div>
             </div>
-            <button type="submit" class="btn-premium-outline"><i class="fas fa-save me-2"></i>Save Changes</button>
+            <button type="submit" class="btn-outline-theme mt-2"><i class="fas fa-save me-2"></i>Save Changes</button>
         </form>
     </div>
 
@@ -144,7 +148,7 @@
                 <div id="matchMsg" class="mt-2" style="font-size:.76rem;min-height:1.1rem;"></div>
             </div>
         </div>
-        <button type="button" onclick="updatePassword()" class="btn-premium" style="margin-top:.5rem;">Update Password</button>
+        <button type="button" onclick="updatePassword()" class="btn-primary-theme mt-3">Update Password</button>
     </div>
 
     <script>
