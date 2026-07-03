@@ -175,6 +175,8 @@ a {
 .card:hover {
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   transform: translateY(-8px);
+}
+.card:not(.text-white):hover {
   background-color: #fafafa !important; 
 }
 .product-img {
