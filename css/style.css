@@ -413,10 +413,98 @@ main h2.fw-bold::before, main h3.fw-bold::before {
     }
 }
 
-/* Shop Page Styles */
-.breadcrumb-banner {
-    background: linear-gradient(135deg, rgba(40,116,240,0.05), rgba(251,100,27,0.05));
-    border-bottom: 1px solid var(--border-color);
+/* Modern Page Hero (Inner Pages) */
+.page-hero {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #101015 0%, #1a1a24 100%);
+    color: #fff;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -5%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(40,116,240,0.35) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 1;
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -5%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(251,100,27,0.25) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 1;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #ffffff, #b3b3b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.page-hero p.lead {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.page-hero .breadcrumb-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.page-hero .breadcrumb {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 25px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    margin: 0;
+}
+
+.page-hero .breadcrumb-item a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.page-hero .breadcrumb-item a:hover {
+    color: var(--secondary-color);
+}
+
+.page-hero .breadcrumb-item.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.page-hero .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.4);
 }
 .sticky-sidebar {
     position: sticky;
