@@ -104,8 +104,30 @@ a {
   background-color: var(--primary-color);
   padding: 10px 0;
 }
-.navbar-custom .nav-link, .navbar-custom .navbar-brand {
+.navbar-custom .navbar-brand {
   color: white !important;
+}
+
+/* Modern Navbar Active & Hover Links */
+.navbar-custom .navbar-nav .nav-item {
+  margin: 0 4px;
+}
+.navbar-custom .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  padding: 8px 18px !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.15);
+}
+.navbar-custom .navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  background: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .search-bar {
