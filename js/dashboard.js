@@ -23,10 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navClient = document.getElementById('navClient');
     const navLandscaper = document.getElementById('navLandscaper');
     const navAdmin = document.getElementById('navAdmin');
+    const navSuperAdmin = document.getElementById('navSuperAdmin');
 
     if (navClient) navClient.style.display = role === 'Shopper' ? 'block' : 'none';
     if (navLandscaper) navLandscaper.style.display = role === 'Vendor' ? 'block' : 'none';
     if (navAdmin) navAdmin.style.display = role === 'Delivery' ? 'block' : 'none';
+    if (navSuperAdmin) navSuperAdmin.style.display = role === 'Admin' ? 'block' : 'none';
 
     // Signout Logic
     const signoutBtn = document.getElementById('signoutBtn');
@@ -47,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const roleDefaults = {
         'Shopper': 'home',
         'Vendor': 'tasks',
-        'Delivery': 'adminOverview'
+        'Delivery': 'adminOverview',
+        'Admin': 'super-overview'
     };
 
     // Restore last page

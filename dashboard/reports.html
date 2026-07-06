@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: -webkit-linear-gradient(#fff, #a1c4fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .report-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .report-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        .report-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .export-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-csv {
+            background: #10b981;
+            color: white;
+        }
+        .btn-pdf {
+            background: #ef4444;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        .date-range {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+        .date-range input[type="date"] {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            outline: none;
+        }
+        .date-range input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <h1>Analytics Reports</h1>
+            
+            <div class="date-range">
+                <span>From:</span>
+                <input type="date">
+                <span>To:</span>
+                <input type="date">
+            </div>
+
+            <div class="grid-cards">
+                <div class="report-card">
+                    <h3>Sales Overview</h3>
+                    <div class="export-actions">
+                        <button class="btn btn-csv">CSV</button>
+                        <button class="btn btn-pdf">PDF</button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <h3>Vendor Performance</h3>
+                    <div class="export-actions">
+                        <button class="btn btn-csv">CSV</button>
+                        <button class="btn btn-pdf">PDF</button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <h3>User Signups</h3>
+                    <div class="export-actions">
+                        <button class="btn btn-csv">CSV</button>
+                        <button class="btn btn-pdf">PDF</button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <h3>Platform Tax Revenue</h3>
+                    <div class="export-actions">
+                        <button class="btn btn-csv">CSV</button>
+                        <button class="btn btn-pdf">PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button:not([disabled])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(!btn.hasAttribute('data-bs-toggle')){
+                    e.preventDefault();
+                    window.top.location.href = '../404.html';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

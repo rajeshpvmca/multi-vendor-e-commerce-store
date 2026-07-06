@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Vendors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00529B;
+            --secondary: #e52e71;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: radial-gradient(circle at 15% 50%, rgba(0, 82, 155, 0.15), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(229, 46, 113, 0.15), transparent 25%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        th {
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .status.pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+        }
+        .status.approved {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+        .btn-approve {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #34d399;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .btn-approve:hover {
+            background: rgba(16, 185, 129, 0.4);
+        }
+        .btn-reject {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #f87171;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            margin-left: 0.5rem;
+        }
+        .btn-reject:hover {
+            background: rgba(239, 68, 68, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vendor Approvals</h1>
+            <nav>
+                <a href="super-overview.html">Overview</a>
+                <a href="manage-users.html">Users</a>
+                <a href="manage-vendors.html">Vendors</a>
+            </nav>
+        </header>
+
+        <div class="glass-panel">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Store Name</th>
+                        <th>Owner</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tech Haven</td>
+                        <td>Alice Cooper</td>
+                        <td>Electronics</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-reject">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Style Boutique</td>
+                        <td>Bob Martin</td>
+                        <td>Clothing</td>
+                        <td><span class="status approved">Approved</span></td>
+                        <td>
+                            <button class="btn-reject">Revoke</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Home Essentials</td>
+                        <td>Carol White</td>
+                        <td>Home & Garden</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-reject">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button:not([disabled])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(!btn.hasAttribute('data-bs-toggle')){
+                    e.preventDefault();
+                    window.top.location.href = '../404.html';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

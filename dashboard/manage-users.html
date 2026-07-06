@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Users</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00529B;
+            --secondary: #e52e71;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: radial-gradient(circle at 15% 50%, rgba(0, 82, 155, 0.15), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(229, 46, 113, 0.15), transparent 25%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        th {
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .status.active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+        .status.inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .action-btn:hover {
+            background: var(--glass-border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manage Users</h1>
+            <nav>
+                <a href="super-overview.html">Overview</a>
+                <a href="manage-users.html">Users</a>
+                <a href="manage-vendors.html">Vendors</a>
+            </nav>
+        </header>
+
+        <div class="glass-panel">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="avatar">JD</div>
+                                <div>John Doe</div>
+                            </div>
+                        </td>
+                        <td>john.doe@example.com</td>
+                        <td>Customer</td>
+                        <td><span class="status active">Active</span></td>
+                        <td>
+                            <button class="action-btn">Edit</button>
+                            <button class="action-btn">Suspend</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="avatar">JS</div>
+                                <div>Jane Smith</div>
+                            </div>
+                        </td>
+                        <td>jane.smith@example.com</td>
+                        <td>Customer</td>
+                        <td><span class="status inactive">Inactive</span></td>
+                        <td>
+                            <button class="action-btn">Edit</button>
+                            <button class="action-btn">Activate</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="avatar">MW</div>
+                                <div>Mike Wilson</div>
+                            </div>
+                        </td>
+                        <td>mike.wilson@example.com</td>
+                        <td>Customer</td>
+                        <td><span class="status active">Active</span></td>
+                        <td>
+                            <button class="action-btn">Edit</button>
+                            <button class="action-btn">Suspend</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button:not([disabled])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(!btn.hasAttribute('data-bs-toggle')){
+                    e.preventDefault();
+                    window.top.location.href = '../404.html';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>
