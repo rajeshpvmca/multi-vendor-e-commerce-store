@@ -16,7 +16,7 @@
 
         body {
             overflow: hidden; 
-            background-color: var(--bs-light);
+            background-color: #f4f6f9;
         }
 
         /* Sidebar Styling */
@@ -26,12 +26,13 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: var(--primary-color);
+            background: linear-gradient(180deg, #12141c 0%, #0a0b0f 100%);
             z-index: 1050;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             border-right: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 5px 0 30px rgba(0,0,0,0.1);
         }
 
         .sidebar-header {
@@ -39,7 +40,7 @@
             display: flex;
             align-items: center;
             padding: 0 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .sidebar-nav {
@@ -57,25 +58,27 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 16px;
-            color: rgba(255, 255, 255, 0.7);
+            padding: 12px 18px;
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             border-radius: 12px;
             margin-bottom: 8px;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             font-weight: 500;
         }
 
         .nav-item-dash:hover {
             color: #fff;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
         }
 
         .nav-item-dash.active {
-            color: var(--secondary-color);
-            background: rgba(255, 160, 0, 0.15);
+            color: #fff;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             font-weight: 700;
-            box-shadow: inset 0 0 0 1px rgba(255, 160, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(229, 46, 113, 0.3);
+            transform: translateX(5px);
         }
 
         /* Main Content Styling */
@@ -86,7 +89,7 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
-            background-color: #f8f9fa;
+            background-color: #f4f6f9;
         }
 
         .dash-header {
@@ -95,8 +98,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #fff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
             z-index: 1000;
         }
 
@@ -105,29 +109,36 @@
             border: none;
             width: 100%;
             height: calc(100vh - var(--header-height));
-            background: #f8f9fa;
+            background: #f4f6f9;
         }
 
         .user-avatar {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary-color), #ff8f00);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(255, 160, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 82, 155, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .user-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(229, 46, 113, 0.4);
         }
 
         /* Overlay for mobile */
         .sidebar-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 82, 155, 0.8);
-            backdrop-filter: blur(4px);
+            background: rgba(10, 11, 15, 0.8);
+            backdrop-filter: blur(5px);
             z-index: 1040;
             display: none;
             opacity: 0;
@@ -140,7 +151,7 @@
             .dash-sidebar { transform: translateX(-100%); }
             .dash-sidebar.active { transform: translateX(0); }
             .dash-main { margin-left: 0; width: 100%; }
-            #sidebarToggle { display: flex !important; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: #f8f9fa; border: 1px solid #dee2e6; color: var(--primary-color); }
+            #sidebarToggle { display: flex !important; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: #fff; border: 1px solid #eaeaea; color: var(--primary-color); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         }
 
         @media (max-width: 575.98px) {
@@ -197,7 +208,7 @@
                 </button>
                 <div class="d-flex flex-column">
                     <h4 class="mb-0 fw-bold text-primary" style="font-family: var(--font-heading);">Dashboard</h4>
-                    <span class="badge mt-1" style="width: fit-content; font-size: 0.7rem; color: var(--secondary-color) !important; background: rgba(255, 160, 0, 0.1); border: 1px solid rgba(255, 160, 0, 0.3);" id="roleBadge">Shopper</span>
+                    <span class="badge mt-1" style="width: fit-content; font-size: 0.7rem; color: var(--secondary-color) !important; background: rgba(229, 46, 113, 0.1); border: 1px solid rgba(229, 46, 113, 0.3);" id="roleBadge">Shopper</span>
                 </div>
             </div>
 
