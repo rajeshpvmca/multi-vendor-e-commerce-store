@@ -15,6 +15,47 @@
     <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        .category-img-wrapper {
+            overflow: hidden;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8f9fa;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .category-item:hover .category-img-wrapper {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 82, 155, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .category-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-item:hover .category-img-wrapper img {
+            transform: scale(1.1);
+        }
+        
+        .category-item span {
+            transition: color 0.3s ease;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        .category-item:hover span {
+            color: var(--primary-color) !important;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Ultra-Modern Premium Preloader -->
@@ -72,51 +113,51 @@
                 <div class="col-lg-7">
                     <div class="row row-cols-2 row-cols-md-3 g-4 h-100 align-items-center">
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">smartphone</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_1.jpg" alt="Smartphones" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Smartphones</span>
+                                <span class="fw-bold">Smartphones</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">laptop_mac</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_2.jpg" alt="Laptops & PCs" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Laptops & PCs</span>
+                                <span class="fw-bold">Laptops & PCs</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">headphones</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_3.jpg" alt="Audio & Sound" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Audio & Sound</span>
+                                <span class="fw-bold">Audio & Sound</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">photo_camera</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_4.jpg" alt="Cameras" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Cameras</span>
+                                <span class="fw-bold">Cameras</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">watch</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_5.jpg" alt="Smartwatches" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Smartwatches</span>
+                                <span class="fw-bold">Smartwatches</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">videogame_asset</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_6.jpg" alt="Gaming" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Gaming</span>
+                                <span class="fw-bold">Gaming</span>
                             </a>
                         </div>
                     </div>
@@ -148,51 +189,51 @@
                 <div class="col-lg-7">
                     <div class="row row-cols-2 row-cols-md-3 g-4 h-100 align-items-center">
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">man</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_7.jpg" alt="Men's Clothing" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Men's Clothing</span>
+                                <span class="fw-bold">Men's Clothing</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">woman</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_8.jpg" alt="Women's Clothing" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Women's Clothing</span>
+                                <span class="fw-bold">Women's Clothing</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">styler</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_9.jpg" alt="Kids' Wear" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Kids' Wear</span>
+                                <span class="fw-bold">Kids' Wear</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">shopping_bag</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_10.jpg" alt="Bags & Luggage" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Bags & Luggage</span>
+                                <span class="fw-bold">Bags & Luggage</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">watch</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_11.jpg" alt="Watches" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Watches</span>
+                                <span class="fw-bold">Watches</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">diamond</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_12.jpg" alt="Jewelry" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Jewelry</span>
+                                <span class="fw-bold">Jewelry</span>
                             </a>
                         </div>
                     </div>
@@ -224,51 +265,51 @@
                 <div class="col-lg-7">
                     <div class="row row-cols-2 row-cols-md-3 g-4 h-100 align-items-center">
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">chair</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_13.jpg" alt="Furniture" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Furniture</span>
+                                <span class="fw-bold">Furniture</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">bed</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_14.jpg" alt="Bedding" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Bedding</span>
+                                <span class="fw-bold">Bedding</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">blender</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_15.jpg" alt="Kitchen Appliances" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Kitchen Appliances</span>
+                                <span class="fw-bold">Kitchen Appliances</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">restaurant</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_16.jpg" alt="Dining & Serving" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Dining & Serving</span>
+                                <span class="fw-bold">Dining & Serving</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">light</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_17.jpg" alt="Lighting" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Lighting</span>
+                                <span class="fw-bold">Lighting</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">potted_plant</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_18.jpg" alt="Home Decor" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Home Decor</span>
+                                <span class="fw-bold">Home Decor</span>
                             </a>
                         </div>
                     </div>
@@ -300,51 +341,51 @@
                 <div class="col-lg-7">
                     <div class="row row-cols-2 row-cols-md-3 g-4 h-100 align-items-center">
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">face</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_19.jpg" alt="Skincare" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Skincare</span>
+                                <span class="fw-bold">Skincare</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">brush</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_20.jpg" alt="Makeup" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Makeup</span>
+                                <span class="fw-bold">Makeup</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">sanitizer</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_21.jpg" alt="Fragrances" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Fragrances</span>
+                                <span class="fw-bold">Fragrances</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">content_cut</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_22.jpg" alt="Hair Care" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Hair Care</span>
+                                <span class="fw-bold">Hair Care</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">spa</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_23.jpg" alt="Bath & Body" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Bath & Body</span>
+                                <span class="fw-bold">Bath & Body</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">health_and_safety</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_24.jpg" alt="Health & Vitamins" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Health & Vitamins</span>
+                                <span class="fw-bold">Health & Vitamins</span>
                             </a>
                         </div>
                     </div>
@@ -376,51 +417,51 @@
                 <div class="col-lg-7">
                     <div class="row row-cols-2 row-cols-md-3 g-4 h-100 align-items-center">
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">fitness_center</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_25.jpg" alt="Fitness Equipment" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Fitness Equipment</span>
+                                <span class="fw-bold">Fitness Equipment</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">directions_run</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_26.jpg" alt="Running Shoes" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Running Shoes</span>
+                                <span class="fw-bold">Running Shoes</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">sports_tennis</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_27.jpg" alt="Racquet Sports" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Racquet Sports</span>
+                                <span class="fw-bold">Racquet Sports</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">pedal_bike</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_28.jpg" alt="Cycling" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Cycling</span>
+                                <span class="fw-bold">Cycling</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">kayaking</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_29.jpg" alt="Outdoor & Camping" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Outdoor & Camping</span>
+                                <span class="fw-bold">Outdoor & Camping</span>
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="shop.html" class="category-item text-dark d-block">
-                                <div class="category-icon">
-                                    <span class="material-symbols-outlined fs-1 text-primary">pool</span>
+                            <a href="shop.html" class="category-item text-dark d-block text-decoration-none">
+                                <div class="category-img-wrapper mx-auto mb-3">
+                                    <img src="assets/images/categories/cat_30.jpg" alt="Swimming" loading="lazy">
                                 </div>
-                                <span class="fw-semibold">Swimming</span>
+                                <span class="fw-bold">Swimming</span>
                             </a>
                         </div>
                     </div>
