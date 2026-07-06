@@ -107,10 +107,10 @@ a {
 
 /* Ultra Premium Header */
 .premium-header {
-    background: rgba(10, 25, 47, 0.6) !important;
+    background: rgba(0, 82, 155, 0.85) !important; /* Theme Primary Color with Glassmorphism */
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding-top: 15px;
     padding-bottom: 15px;
 }
