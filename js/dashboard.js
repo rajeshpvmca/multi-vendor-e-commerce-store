@@ -20,14 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const role = user.role || 'Shopper';
     if (roleBadge) roleBadge.textContent = role;
 
-    const navClient = document.getElementById('navClient');
-    const navLandscaper = document.getElementById('navLandscaper');
-    const navAdmin = document.getElementById('navAdmin');
+    const navShopper = document.getElementById('navShopper');
+    const navVendor = document.getElementById('navVendor');
+    const navDelivery = document.getElementById('navDelivery');
     const navSuperAdmin = document.getElementById('navSuperAdmin');
 
-    if (navClient) navClient.style.display = role === 'Shopper' ? 'block' : 'none';
-    if (navLandscaper) navLandscaper.style.display = role === 'Vendor' ? 'block' : 'none';
-    if (navAdmin) navAdmin.style.display = role === 'Delivery' ? 'block' : 'none';
+    if (navShopper) navShopper.style.display = role === 'Shopper' ? 'block' : 'none';
+    if (navVendor) navVendor.style.display = role === 'Vendor' ? 'block' : 'none';
+    if (navDelivery) navDelivery.style.display = role === 'Delivery' ? 'block' : 'none';
     if (navSuperAdmin) navSuperAdmin.style.display = role === 'Admin' ? 'block' : 'none';
 
     // Signout Logic
