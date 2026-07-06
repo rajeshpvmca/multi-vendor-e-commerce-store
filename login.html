@@ -141,6 +141,47 @@
             background-color: var(--primary-color) !important;
             border-color: var(--primary-color) !important;
         }
+
+        /* Animated Links */
+        .auth-link {
+            color: var(--primary-color) !important;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .auth-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateX(4px);
+        }
+        
+        .auth-link-underline {
+            color: var(--primary-color) !important;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .auth-link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        
+        .auth-link-underline:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        .auth-link-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     </style>
 </head>
 
@@ -180,7 +221,7 @@
                         <!-- Right: Form Side -->
                         <div class="col-lg-6 p-3 p-lg-4">
                             <div class="text-center mb-2">
-                                <a href="index.html" style="color: var(--primary-color)" class="small text-decoration-none"><i
+                                <a href="index.html" class="small text-decoration-none auth-link"><i
                                         class="fas fa-arrow-left me-2"></i> Back to Home</a>
                             </div>
 
@@ -249,14 +290,14 @@
                                         <label class="form-check-label small text-muted" for="remember">Remember
                                             Me</label>
                                     </div>
-                                    <a href="404.html" class="text-primary small text-decoration-none">Forgot
+                                    <a href="404.html" class="small text-decoration-none auth-link-underline">Forgot
                                         Password?</a>
                                 </div>
 
                                 <button class="btn btn-warning w-100 mb-3 py-3 fw-bold shadow-lg">Login to Account</button>
 
                                 <p class="text-center mb-0 small text-muted">Don't have an account? <a
-                                        href="signup.html" class="text-primary fw-bold text-decoration-none">Register
+                                        href="signup.html" class="fw-bold text-decoration-none auth-link-underline">Register
                                         Now</a></p>
                             </form>
                         </div>
