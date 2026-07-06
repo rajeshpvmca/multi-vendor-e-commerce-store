@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Schedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F59E0B;
+            --bg-color: #0F172A;
+            --card-bg: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg-color); color: var(--text-main); padding: 2rem; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        h1 { font-size: 2rem; font-weight: 600; }
+        .btn { background: var(--primary); color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 0.5rem; font-weight: 500; cursor: pointer; }
+        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1rem; }
+        .day-header { text-align: center; color: var(--text-muted); font-weight: 500; padding: 0.5rem; }
+        .day-card { background: var(--card-bg); min-height: 120px; padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.05); }
+        .date { font-weight: 600; margin-bottom: 0.5rem; color: var(--text-muted); }
+        .today .date { color: var(--primary); }
+        .shift { background: rgba(245, 158, 11, 0.2); border-left: 3px solid var(--primary); padding: 0.5rem; border-radius: 0.25rem; font-size: 0.85rem; margin-top: 0.5rem; }
+        @media(max-width: 768px) {
+            .calendar { grid-template-columns: 1fr; }
+            .day-header { display: none; }
+            .day-card { min-height: auto; display: flex; align-items: center; gap: 1rem; }
+            .date { margin: 0; min-width: 60px; }
+            .shift { margin: 0; flex: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Schedule</h1>
+            <button class="btn">Request Time Off</button>
+        </header>
+        <div class="calendar">
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+            <div class="day-header">Sat</div>
+            <div class="day-header">Sun</div>
+            
+            <div class="day-card"><div class="date">6</div><div class="shift">09:00 - 17:00</div></div>
+            <div class="day-card today"><div class="date">7</div><div class="shift">10:00 - 18:00</div></div>
+            <div class="day-card"><div class="date">8</div><div class="shift">Off</div></div>
+            <div class="day-card"><div class="date">9</div><div class="shift">12:00 - 20:00</div></div>
+            <div class="day-card"><div class="date">10</div><div class="shift">09:00 - 17:00</div></div>
+            <div class="day-card"><div class="date">11</div><div class="shift">09:00 - 14:00</div></div>
+            <div class="day-card"><div class="date">12</div><div class="shift">Off</div></div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button:not([disabled])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(!btn.hasAttribute('data-bs-toggle')){
+                    e.preventDefault();
+                    window.top.location.href = '../404.html';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

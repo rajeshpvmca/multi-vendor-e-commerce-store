@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --bg-color: #0F172A;
+            --card-bg: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg-color); color: var(--text-main); padding: 2rem; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        h1 { font-size: 2rem; font-weight: 600; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--card-bg); padding: 1.5rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255,255,255,0.05); }
+        .card h2 { font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-main); }
+        .detail-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .detail-row:last-child { border-bottom: none; }
+        .label { color: var(--text-muted); font-size: 0.9rem; }
+        .value { font-weight: 500; }
+        .log-item { background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 0.5rem; margin-bottom: 0.75rem; }
+        .log-date { color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .status-badge { background: #10B981; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vehicle Management</h1>
+            <span class="status-badge">Active</span>
+        </header>
+        <div class="grid">
+            <div class="card">
+                <h2>Vehicle Details</h2>
+                <div class="detail-row"><span class="label">Make/Model</span><span class="value">Honda Activa 6G</span></div>
+                <div class="detail-row"><span class="label">License Plate</span><span class="value">MH-12-AB-1234</span></div>
+                <div class="detail-row"><span class="label">Insurance Expiry</span><span class="value">Oct 24, 2026</span></div>
+                <div class="detail-row"><span class="label">Total Distance</span><span class="value">14,250 km</span></div>
+            </div>
+            <div class="card">
+                <h2>Maintenance Logs</h2>
+                <div class="log-item">
+                    <div class="log-date">Jul 01, 2026</div>
+                    <div class="value">Oil Change & Brake Inspection</div>
+                    <div class="label">Completed by AutoCare Center</div>
+                </div>
+                <div class="log-item">
+                    <div class="log-date">May 15, 2026</div>
+                    <div class="value">Tire Replacement (Rear)</div>
+                    <div class="label">Completed by MotoTyres</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button:not([disabled])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(!btn.hasAttribute('data-bs-toggle')){
+                    e.preventDefault();
+                    window.top.location.href = '../404.html';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>
