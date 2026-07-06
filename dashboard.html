@@ -214,13 +214,17 @@
 
             <div class="d-flex align-items-center gap-4">
                 <div class="text-end d-none d-sm-block">
-                    <div class="fw-bold text-primary" id="navUserName">User Name</div>
+                    <div class="fw-bold" style="color: var(--primary-color); font-family: var(--font-heading);" id="navUserName">User Name</div>
                     <div class="text-secondary opacity-75" style="font-size: 0.75rem;" id="navUserEmail">email@example.com</div>
                 </div>
                 <div class="d-flex align-items-center gap-3 border-start ps-3">
-                    <div class="user-avatar" id="userAvatar">U</div>
-                    <button class="btn btn-sm btn-premium-outline rounded-pill px-3 py-2 fw-bold d-flex align-items-center gap-2 transition-all hover-scale" id="signoutBtn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">logout</span> <span class="d-none d-md-inline">Sign Out</span>
+                    <div class="user-avatar shadow-sm" id="userAvatar">U</div>
+                    <button class="btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2 transition-all hover-scale" 
+                            id="signoutBtn"
+                            style="background: rgba(229, 46, 113, 0.1); color: var(--secondary-color); border: 1px solid rgba(229, 46, 113, 0.2); font-size: 0.9rem;"
+                            onmouseover="this.style.background='var(--secondary-color)'; this.style.color='#fff'; this.style.boxShadow='0 4px 15px rgba(229, 46, 113, 0.3)';"
+                            onmouseout="this.style.background='rgba(229, 46, 113, 0.1)'; this.style.color='var(--secondary-color)'; this.style.boxShadow='none';">
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">logout</span> <span class="d-none d-md-inline">Sign Out</span>
                     </button>
                 </div>
             </div>
