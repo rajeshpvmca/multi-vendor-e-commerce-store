@@ -1,57 +1,57 @@
- <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top overflow-hidden">
-        <div class="container">
-            <!-- <a class="navbar-brand fw-bold fs-3" href="/">Stackly</a> -->
-
-            <a class="navbar-brand" href="index.html">
-                <div style="-webkit-mask: url('assets/images/logoStackly.webp') no-repeat center left; -webkit-mask-size: contain; mask: url('assets/images/logoStackly.webp') no-repeat center left; mask-size: contain; background-color: white; width: 160px; height: 50px;"
-                    aria-label="Stackly Logo"></div>
+ <!-- Ultra Premium Header -->
+    <nav class="navbar navbar-expand-lg fixed-top premium-header transition-all">
+        <div class="container-fluid px-3 px-lg-5">
+            
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-mask" aria-label="Stackly Logo"></div>
             </a>
             
-            <button id="mobileMenuToggle" class="navbar-toggler text-white border-white" type="button" aria-label="Toggle navigation">
-                <span class="material-symbols-outlined text-white">menu</span>
-            </button>
+            <!-- Mobile Right Side (Cart + Hamburger) -->
+            <div class="d-flex align-items-center order-lg-3 ms-auto">
+                <!-- Cart Icon Always Visible -->
+                <a class="nav-link icon-circle position-relative me-3 me-lg-0 ms-lg-2" href="404.html">
+                    <span class="material-symbols-outlined text-white">shopping_cart</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark mt-1 ms-n2" style="font-size: 0.6rem;">3</span>
+                </a>
+                
+                <button id="mobileMenuToggle" class="navbar-toggler border-0 shadow-none p-0 d-lg-none" type="button" aria-label="Toggle navigation">
+                    <span class="material-symbols-outlined text-white fs-1">menu</span>
+                </button>
+            </div>
             
-            <div class="navbar-collapse full-screen-menu" id="navbarSupportedContent">
-                <button id="menuCloseBtn" class="d-lg-none material-symbols-outlined">close</button>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="categories.html">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    
-                    <!-- Icons -->
-                    <li class="nav-item ms-lg-3 mt-4 mt-lg-0">
-                        <a class="nav-link d-flex align-items-center" href="404.html">
-                            <span class="material-symbols-outlined">favorite</span>
+            <!-- Navbar Links -->
+            <div class="navbar-collapse full-screen-menu order-lg-2" id="navbarSupportedContent">
+                <button id="menuCloseBtn" class="d-lg-none material-symbols-outlined text-white">close</button>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Desktop Right Side (Favorite + Login) -->
+                <ul class="navbar-nav align-items-center d-none d-lg-flex">
+                    <li class="nav-item ms-lg-2">
+                        <a class="nav-link icon-circle" href="404.html">
+                            <span class="material-symbols-outlined text-white">favorite</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center position-relative" href="404.html">
-                            <span class="material-symbols-outlined">shopping_cart</span>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark mt-2 ms-n2" style="font-size: 0.6rem;">
-                                3
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-lg-4 mt-4 mt-lg-0">
-                        <a class="btn btn-warning fw-bold px-4 rounded-pill btn-lg" href="login.html">Login</a>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-warning fw-bold px-4 rounded-pill shadow-sm" href="login.html">Login</a>
                     </li>
                 </ul>
+                
+                <!-- Mobile Menu Footer (Shows only inside full screen menu) -->
+                <div class="d-lg-none mt-auto pb-5 text-center w-100 d-flex flex-column align-items-center">
+                    <a class="nav-link icon-circle mb-4 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;" href="404.html">
+                        <span class="material-symbols-outlined text-white fs-3">favorite</span>
+                    </a>
+                    <a class="btn btn-warning fw-bold px-5 py-3 rounded-pill fs-5 w-75" href="login.html">Login</a>
+                </div>
             </div>
+            
         </div>
     </nav>
