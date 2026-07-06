@@ -106,11 +106,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize AOS Animation
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            once: true,
-            offset: 100
-        });
+    // (AOS init moved to window load event below)
+});
+
+// Preloader and Delayed Animation Initialization
+const startTime = Date.now();
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, 2500 - elapsedTime); // Enforce 2.5s minimum
+        
+        setTimeout(() => {
+            // Start fading out the preloader
+            preloader.classList.add('fade-out');
+            
+            // Wait for the fade-out CSS transition (0.8s) to complete
+            setTimeout(() => {
+                document.body.classList.add('body-loaded');
+                
+                // Initialize AOS Animation only after preloader is completely gone
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        once: true,
+                        offset: 100
+                    });
+                }
+            }, 800);
+        }, remainingTime);
+    } else {
+        // Fallback if no preloader exists on the page
+        document.body.classList.add('body-loaded');
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                once: true,
+                offset: 100
+            });
+        }
     }
 });
