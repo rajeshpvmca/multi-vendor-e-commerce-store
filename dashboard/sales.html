@@ -3,58 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales & Orders</title>
+    <title>Premium Sales & Orders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
-        body { padding: 1.5rem; background-color: #f8f9fa; font-family: 'Inter', sans-serif; }
-        .dash-card { border: none; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .text-primary-theme { color: var(--primary-color) !important; }
-        .badge-order { border-radius: 8px; padding: 5px 10px; font-weight: 600; font-size: 0.8rem; }
-        .status-new { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; }
-        .status-processing { background-color: rgba(255, 160, 0, 0.1); color: var(--secondary-color); }
-        .status-shipped { background-color: rgba(25, 135, 84, 0.1); color: #198754; }
-        .table > :not(caption) > * > * { padding: 1rem; border-bottom-color: #f1f1f1; }
+        :root {
+            --primary-grad: linear-gradient(135deg, #00529B, #003666);
+            --secondary-grad: linear-gradient(135deg, #e52e71, #b21b50);
+            --accent-grad: linear-gradient(135deg, #00529B, #e52e71);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+        body { 
+            padding: 2rem 1.5rem; 
+            background: #f0f4f8; 
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 82, 155, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(229, 46, 113, 0.05) 0%, transparent 40%);
+            font-family: 'Outfit', sans-serif; 
+            min-height: 100vh;
+        }
+        .premium-title {
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .glass-card { 
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; 
+            box-shadow: var(--glass-shadow); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+        }
+        .stat-icon {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .bg-gradient-primary { background: var(--primary-grad); }
+        .bg-gradient-secondary { background: var(--secondary-grad); }
+        
+        .badge-order { border-radius: 8px; padding: 6px 12px; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .status-new { background-color: rgba(0, 82, 155, 0.1); color: #00529B; border: 1px solid rgba(0, 82, 155, 0.2); }
+        .status-processing { background-color: rgba(229, 46, 113, 0.1); color: #e52e71; border: 1px solid rgba(229, 46, 113, 0.2); }
+        .status-shipped { background-color: rgba(25, 135, 84, 0.1); color: #198754; border: 1px solid rgba(25, 135, 84, 0.2); }
+        
+        .table > :not(caption) > * > * { padding: 1.2rem 1rem; border-bottom-color: rgba(0,0,0,0.05); background: transparent; vertical-align: middle; }
+        .table-hover tbody tr:hover { background-color: rgba(255,255,255,0.5); }
+        .avatar-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
+        
+        .btn-gradient { background: var(--accent-grad); color: white; border: none; transition: opacity 0.3s; }
+        .btn-gradient:hover { opacity: 0.9; color: white; }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <h3 class="fw-bold mb-4 text-primary-theme">Sales & Orders</h3>
+        <h2 class="premium-title mb-5">Sales & Orders Overview</h2>
         
-        <div class="row g-4 mb-4">
+        <div class="row g-4 mb-5">
             <div class="col-md-4">
-                <div class="card dash-card h-100 bg-white">
-                    <div class="card-body">
-                        <h6 class="text-muted mb-2">Orders to Fulfill</h6>
-                        <h2 class="fw-bold mb-0 text-danger">12</h2>
+                <div class="card glass-card h-100 p-4 border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-gradient-secondary me-3">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted fw-semibold mb-0">Orders to Fulfill</h6>
+                        </div>
                     </div>
+                    <h2 class="fw-bold mb-0">124</h2>
+                    <div class="mt-2 text-sm"><span class="text-danger fw-bold"><i class="fas fa-arrow-down me-1"></i>3.2%</span> <span class="text-muted">vs last week</span></div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card dash-card h-100 bg-white">
-                    <div class="card-body">
-                        <h6 class="text-muted mb-2">Total Sales (This Month)</h6>
-                        <h2 class="fw-bold mb-0 text-success">$4,250.00</h2>
+                <div class="card glass-card h-100 p-4 border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-gradient-primary me-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted fw-semibold mb-0">Total Sales (Monthly)</h6>
+                        </div>
                     </div>
+                    <h2 class="fw-bold mb-0">$84,250.00</h2>
+                    <div class="mt-2 text-sm"><span class="text-success fw-bold"><i class="fas fa-arrow-up me-1"></i>12.5%</span> <span class="text-muted">vs last month</span></div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card dash-card h-100 bg-white">
-                    <div class="card-body">
-                        <h6 class="text-muted mb-2">Average Order Value</h6>
-                        <h2 class="fw-bold mb-0 text-primary-theme">$85.00</h2>
+                <div class="card glass-card h-100 p-4 border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-dark me-3">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted fw-semibold mb-0">Average Order Value</h6>
+                        </div>
                     </div>
+                    <h2 class="fw-bold mb-0">$142.50</h2>
+                    <div class="mt-2 text-sm"><span class="text-success fw-bold"><i class="fas fa-arrow-up me-1"></i>1.2%</span> <span class="text-muted">vs last month</span></div>
                 </div>
             </div>
         </div>
 
-        <div class="card dash-card">
-            <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+        <div class="row g-4 mb-5">
+            <div class="col-12">
+                <div class="card glass-card border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">Sales Analytics</h5>
+                    </div>
+                    <div id="salesChart" style="min-height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card glass-card border-0 p-2 p-md-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3 p-2 p-md-0">
                 <h5 class="fw-bold mb-0">Recent Orders</h5>
                 <div class="d-flex gap-2">
-                    <select class="form-select border-0 bg-light rounded-pill">
+                    <select class="form-select bg-white bg-opacity-75 border-0 shadow-sm rounded-pill px-4" style="backdrop-filter: blur(5px);">
                         <option>All Statuses</option>
                         <option>New</option>
                         <option>Processing</option>
@@ -62,80 +140,129 @@
                     </select>
                 </div>
             </div>
-            <div class="card-body p-0">
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th class="text-muted small border-0 px-4">Order ID</th>
-                                <th class="text-muted small border-0">Customer</th>
-                                <th class="text-muted small border-0">Date</th>
-                                <th class="text-muted small border-0">Amount</th>
-                                <th class="text-muted small border-0">Status</th>
-                                <th class="text-muted small border-0 px-4 text-end">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="fw-bold px-4">#ORD-9910</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-2 text-primary" style="width: 30px; height: 30px; font-weight: bold;">J</div>
-                                        <span>John Doe</span>
-                                    </div>
-                                </td>
-                                <td>Today, 10:45 AM</td>
-                                <td class="fw-bold">$129.99</td>
-                                <td><span class="badge-order status-new">New</span></td>
-                                <td class="px-4 text-end">
-                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Process</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold px-4">#ORD-9908</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-2 text-success" style="width: 30px; height: 30px; font-weight: bold;">A</div>
-                                        <span>Alice Smith</span>
-                                    </div>
-                                </td>
-                                <td>Yesterday</td>
-                                <td class="fw-bold">$45.00</td>
-                                <td><span class="badge-order status-processing">Processing</span></td>
-                                <td class="px-4 text-end">
-                                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Update</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold px-4">#ORD-9885</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-2 text-warning" style="width: 30px; height: 30px; font-weight: bold;">M</div>
-                                        <span>Michael Brown</span>
-                                    </div>
-                                </td>
-                                <td>Oct 24, 2026</td>
-                                <td class="fw-bold">$249.99</td>
-                                <td><span class="badge-order status-shipped">Shipped</span></td>
-                                <td class="px-4 text-end">
-                                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">View</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-muted fw-semibold border-0 px-4">Order ID</th>
+                            <th class="text-muted fw-semibold border-0">Customer</th>
+                            <th class="text-muted fw-semibold border-0">Date</th>
+                            <th class="text-muted fw-semibold border-0">Amount</th>
+                            <th class="text-muted fw-semibold border-0">Status</th>
+                            <th class="text-muted fw-semibold border-0 px-4 text-end">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold px-4">#ORD-9910</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle bg-primary bg-opacity-10 text-primary me-3 shadow-sm">J</div>
+                                    <span class="fw-medium">John Doe</span>
+                                </div>
+                            </td>
+                            <td class="text-muted">Today, 10:45 AM</td>
+                            <td class="fw-bold">$129.99</td>
+                            <td><span class="badge-order status-new">New</span></td>
+                            <td class="px-4 text-end">
+                                <button class="btn btn-sm btn-gradient rounded-pill px-4 shadow-sm">Process</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold px-4">#ORD-9908</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle bg-danger bg-opacity-10 text-danger me-3 shadow-sm" style="color: #e52e71 !important;">A</div>
+                                    <span class="fw-medium">Alice Smith</span>
+                                </div>
+                            </td>
+                            <td class="text-muted">Yesterday, 04:20 PM</td>
+                            <td class="fw-bold">$45.00</td>
+                            <td><span class="badge-order status-processing">Processing</span></td>
+                            <td class="px-4 text-end">
+                                <button class="btn btn-sm btn-light rounded-pill px-4 shadow-sm">Update</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold px-4">#ORD-9885</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle bg-success bg-opacity-10 text-success me-3 shadow-sm">M</div>
+                                    <span class="fw-medium">Michael Brown</span>
+                                </div>
+                            </td>
+                            <td class="text-muted">Oct 24, 2026</td>
+                            <td class="fw-bold">$249.99</td>
+                            <td><span class="badge-order status-shipped">Shipped</span></td>
+                            <td class="px-4 text-end">
+                                <button class="btn btn-sm btn-light rounded-pill px-4 shadow-sm">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('button, a.btn, .action-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.top.location.href = '../404.html';
-            });
-        });
+        var options = {
+            series: [{
+                name: 'Sales',
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+            }, {
+                name: 'Revenue',
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+            }],
+            chart: {
+                type: 'bar',
+                height: 300,
+                fontFamily: 'Outfit, sans-serif',
+                toolbar: { show: false },
+                background: 'transparent'
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    borderRadius: 5,
+                },
+            },
+            colors: ['#00529B', '#e52e71'],
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                axisBorder: { show: false },
+                axisTicks: { show: false }
+            },
+            yaxis: {
+                title: { text: '$ (thousands)' }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "$ " + val + " thousands"
+                    }
+                }
+            },
+            grid: {
+                borderColor: 'rgba(0,0,0,0.05)',
+                strokeDashArray: 4,
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#salesChart"), options);
+        chart.render();
     });
-</script>
+    </script>
 </body>
 </html>

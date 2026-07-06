@@ -6,84 +6,190 @@
     <title>Active Deliveries</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        body { padding: 1.5rem; background-color: #f8f9fa; font-family: 'Inter', sans-serif; }
-        .dash-card { border: none; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .text-primary-theme { color: var(--primary-color) !important; }
-        .btn-primary-theme { background-color: var(--primary-color) !important; color: #fff; border: none; }
-        .package-icon { width: 40px; height: 40px; border-radius: 10px; background-color: rgba(0, 82, 155, 0.1); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        :root {
+            --bg-color: #f4f7fb;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --primary-accent: #4F46E5;
+            --secondary-accent: #10B981;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+        body { 
+            padding: 1.5rem; 
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            color: var(--text-main);
+        }
+        .dash-card { 
+            border: 1px solid rgba(255, 255, 255, 0.5); 
+            border-radius: 20px; 
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .dash-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+        .text-primary-theme { color: var(--primary-accent) !important; }
+        .btn-primary-theme { 
+            background: linear-gradient(135deg, #4F46E5 0%, #6366f1 100%) !important; 
+            color: #fff; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary-theme:hover {
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        .btn-success-theme {
+            background: linear-gradient(135deg, #10B981 0%, #34d399 100%) !important;
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-success-theme:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            transform: translateY(-2px);
+            color: white;
+        }
+        .package-icon { 
+            width: 48px; height: 48px; 
+            border-radius: 14px; 
+            background: rgba(79, 70, 229, 0.1); 
+            color: var(--primary-accent); 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 1.4rem; 
+            transition: all 0.3s ease;
+        }
+        .list-group-item:hover .package-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        /* Premium RGBA Badges */
+        .badge-premium {
+            padding: 0.5em 1em;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-assigned { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .badge-intransit { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge-delivered { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+        
+        .list-group-item {
+            background: transparent;
+            transition: background 0.3s ease;
+            margin-bottom: 0.5rem;
+            border-radius: 16px !important;
+            border: 1px solid rgba(0,0,0,0.02) !important;
+        }
+        .list-group-item:hover {
+            background: rgba(255,255,255,0.9);
+        }
+        .nav-pills .nav-link.active {
+            background: var(--primary-accent);
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <h3 class="fw-bold mb-4 text-primary-theme">Active Deliveries</h3>
+    <div class="container-fluid py-3">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h3 class="fw-bold text-primary-theme m-0" style="font-size: 2rem; letter-spacing: -0.5px;">Active Deliveries</h3>
+            <span class="badge badge-premium badge-intransit"><i class="fas fa-truck-fast me-2"></i>Live Tracking Active</span>
+        </div>
         
-        <div class="card dash-card">
-            <div class="card-header bg-white border-0 py-3">
-                <ul class="nav nav-pills" id="deliveryTabs">
+        <div class="card dash-card mb-4">
+            <div class="card-header bg-transparent border-0 pt-4 pb-2 px-4">
+                <ul class="nav nav-pills gap-2" id="deliveryTabs">
                     <li class="nav-item">
-                        <a class="nav-link active rounded-pill px-4" href="../404.html" style="background-color: var(--primary-color);">In Transit</a>
+                        <a class="nav-link active rounded-pill px-4 fw-medium" href="../404.html">In Transit</a>
                     </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link text-muted rounded-pill px-4 bg-light" href="../404.html">Pending Pickup</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted rounded-pill px-4 bg-white shadow-sm fw-medium" href="../404.html">Assigned</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted rounded-pill px-4 bg-white shadow-sm fw-medium" href="../404.html">Delivered</a>
                     </li>
                 </ul>
             </div>
-            <div class="card-body p-0">
-                <div class="list-group list-group-flush rounded-bottom-4">
+            <div class="card-body p-4">
+                <div class="list-group rounded-4 gap-3">
                     <!-- Delivery Item 1 -->
-                    <div class="list-group-item border-0 border-bottom p-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-5 d-flex align-items-center mb-3 mb-md-0">
-                                <div class="package-icon me-3">
+                    <div class="list-group-item p-4 shadow-sm">
+                        <div class="row align-items-center g-3">
+                            <div class="col-12 col-lg-4 d-flex align-items-center">
+                                <div class="package-icon me-3 flex-shrink-0">
                                     <i class="fas fa-box"></i>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-1">Order #ORD-9910</h6>
-                                    <p class="text-muted small mb-0">1x Running Sneakers, 1x Socks</p>
+                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                        <h6 class="fw-bold m-0" style="font-size: 1.1rem;">#ORD-9910</h6>
+                                        <span class="badge badge-premium badge-intransit">In Transit</span>
+                                    </div>
+                                    <p class="text-muted small mb-0 fw-medium">1x Running Sneakers, 1x Socks</p>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="col-12 col-lg-4 border-start border-end px-lg-4 py-2 py-lg-0">
                                 <div class="d-flex align-items-start">
-                                    <i class="fas fa-map-marker-alt text-danger me-2 mt-1"></i>
+                                    <div class="bg-danger bg-opacity-10 text-danger rounded-circle p-2 me-3 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
                                     <div>
-                                        <p class="mb-0 fw-bold small">123 Main Street, Apt 4B</p>
-                                        <p class="text-muted small mb-0">New York, NY 10001</p>
-                                        <a href="tel:+1234567890" class="text-decoration-none small"><i class="fas fa-phone-alt me-1"></i>Call Customer</a>
+                                        <p class="mb-1 fw-bold text-dark">123 Main Street, Apt 4B</p>
+                                        <p class="text-muted small mb-2">New York, NY 10001</p>
+                                        <a href="tel:+1234567890" class="text-decoration-none small fw-semibold text-primary-theme btn btn-sm btn-light rounded-pill px-3 py-1"><i class="fas fa-phone-alt me-2"></i>Call Customer</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 text-md-end">
-                                <button class="btn btn-success rounded-pill px-4 fw-bold w-100" data-bs-toggle="modal" data-bs-target="#deliveryConfirmModal">Mark Delivered</button>
+                            <div class="col-12 col-lg-4 text-lg-end mt-3 mt-lg-0">
+                                <button class="btn btn-success-theme rounded-pill px-4 py-2 fw-bold w-100" data-bs-toggle="modal" data-bs-target="#deliveryConfirmModal">
+                                    <i class="fas fa-check-circle me-2"></i>Mark Delivered
+                                </button>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Delivery Item 2 -->
-                    <div class="list-group-item border-0 border-bottom p-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-5 d-flex align-items-center mb-3 mb-md-0">
-                                <div class="package-icon me-3" style="background-color: rgba(255, 160, 0, 0.1); color: var(--secondary-color);">
+                    <div class="list-group-item p-4 shadow-sm">
+                        <div class="row align-items-center g-3">
+                            <div class="col-12 col-lg-4 d-flex align-items-center">
+                                <div class="package-icon me-3 flex-shrink-0" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
                                     <i class="fas fa-box-open"></i>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-1">Order #ORD-9908</h6>
-                                    <p class="text-muted small mb-0">1x Smart Watch Pro (Fragile)</p>
+                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                        <h6 class="fw-bold m-0" style="font-size: 1.1rem;">#ORD-9908</h6>
+                                        <span class="badge badge-premium badge-assigned">Assigned</span>
+                                    </div>
+                                    <p class="text-muted small mb-0 fw-medium">1x Smart Watch Pro (Fragile)</p>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="col-12 col-lg-4 border-start border-end px-lg-4 py-2 py-lg-0">
                                 <div class="d-flex align-items-start">
-                                    <i class="fas fa-map-marker-alt text-danger me-2 mt-1"></i>
+                                    <div class="bg-danger bg-opacity-10 text-danger rounded-circle p-2 me-3 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
                                     <div>
-                                        <p class="mb-0 fw-bold small">456 Oak Avenue</p>
+                                        <p class="mb-1 fw-bold text-dark">456 Oak Avenue</p>
                                         <p class="text-muted small mb-0">Brooklyn, NY 11201</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 text-md-end">
-                                <button class="btn btn-success rounded-pill px-4 fw-bold w-100" data-bs-toggle="modal" data-bs-target="#deliveryConfirmModal">Mark Delivered</button>
+                            <div class="col-12 col-lg-4 text-lg-end mt-3 mt-lg-0">
+                                <button class="btn btn-light rounded-pill px-4 py-2 fw-bold w-100 text-primary-theme" style="border: 1px solid rgba(79, 70, 229, 0.2);" data-bs-toggle="modal" data-bs-target="#deliveryConfirmModal">
+                                    <i class="fas fa-location-arrow me-2"></i>Start Navigation
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -91,22 +197,22 @@
             </div>
         </div>
         
-        <!-- Delivery Confirmation Modal (Placeholder) -->
+        <!-- Delivery Confirmation Modal -->
         <div class="modal fade" id="deliveryConfirmModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="border-radius: 16px; border: none;">
-                    <div class="modal-header border-0 pb-0 text-center d-block">
-                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                <div class="modal-content" style="border-radius: 24px; border: none; box-shadow: 0 25px 50px rgba(0,0,0,0.1);">
+                    <div class="modal-header border-0 pb-0 text-center d-block position-relative">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; font-size: 2rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);">
                             <i class="fas fa-check"></i>
                         </div>
-                        <h5 class="modal-title fw-bold">Confirm Delivery</h5>
-                        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title fw-bold">Confirm Delivery</h4>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-4" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body text-center">
-                        <p class="text-muted mb-4">Are you sure you want to mark Order <strong>#ORD-9910</strong> as successfully delivered?</p>
-                        <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-success py-2 rounded-pill fw-bold" data-bs-dismiss="modal">Yes, Mark Delivered</button>
-                            <button type="button" class="btn btn-light py-2 rounded-pill fw-bold text-muted" data-bs-dismiss="modal">Cancel</button>
+                    <div class="modal-body text-center p-4">
+                        <p class="text-muted mb-4 fs-6">Are you sure you want to mark Order <strong class="text-dark">#ORD-9910</strong> as successfully delivered?</p>
+                        <div class="d-grid gap-3">
+                            <button type="button" class="btn btn-success-theme py-3 rounded-pill fw-bold fs-6" data-bs-dismiss="modal">Yes, Mark Delivered</button>
+                            <button type="button" class="btn btn-light py-3 rounded-pill fw-bold text-muted" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -116,13 +222,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('button, a.btn, .action-btn').forEach(btn => {
+        document.querySelectorAll('a.nav-link').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.top.location.href = '../404.html';
+                if(btn.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    window.top.location.href = '../404.html';
+                }
             });
         });
     });
-</script>
+    </script>
 </body>
 </html>

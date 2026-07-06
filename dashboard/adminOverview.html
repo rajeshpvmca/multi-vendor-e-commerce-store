@@ -3,117 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery Dashboard</title>
+    <title>Premium Admin Overview</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
-        body { padding: 1.5rem; background-color: #f8f9fa; font-family: 'Inter', sans-serif; }
-        .dash-card { border: none; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .text-primary-theme { color: var(--primary-color) !important; }
-        .bg-primary-theme { background-color: var(--primary-color) !important; color: #fff; }
-        .stat-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 0 auto 15px; }
-        .map-placeholder { background-color: #e9ecef; border-radius: 12px; height: 400px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #6c757d; border: 2px dashed #ced4da; }
+        :root {
+            --primary-grad: linear-gradient(135deg, #00529B, #003666);
+            --secondary-grad: linear-gradient(135deg, #e52e71, #b21b50);
+            --accent-grad: linear-gradient(135deg, #00529B, #e52e71);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+        body { 
+            padding: 2rem 1.5rem; 
+            background: #f0f4f8; 
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 82, 155, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(229, 46, 113, 0.05) 0%, transparent 40%);
+            font-family: 'Outfit', sans-serif; 
+            min-height: 100vh;
+        }
+        .premium-title {
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .glass-card { 
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; 
+            box-shadow: var(--glass-shadow); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+        }
+        .stat-icon {
+            width: 60px; height: 60px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .bg-gradient-primary { background: var(--primary-grad); }
+        .bg-gradient-secondary { background: var(--secondary-grad); }
+        .bg-gradient-accent { background: var(--accent-grad); }
+        
+        .timeline-item { position: relative; padding-left: 2.5rem; margin-bottom: 1.5rem; }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: 11px; top: 0; bottom: -1.5rem; width: 2px;
+            background: var(--accent-grad);
+            opacity: 0.3;
+        }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-badge {
+            position: absolute; left: 0; top: 0;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: var(--accent-grad);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; font-weight: bold;
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.8);
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold mb-0 text-primary-theme">Delivery Overview</h3>
-            <span class="badge bg-success px-3 py-2 rounded-pill fs-6"><i class="fas fa-circle me-2" style="font-size: 8px; vertical-align: middle;"></i>Online</span>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
+            <div>
+                <h2 class="premium-title mb-1">Admin Overview</h2>
+                <p class="text-muted mb-0 fw-medium">Welcome back, monitor your store's performance.</p>
+            </div>
+            <span class="badge bg-white text-dark shadow-sm px-4 py-2 rounded-pill fs-6 border" style="border-color: var(--glass-border) !important;">
+                <i class="fas fa-circle me-2 text-success" style="font-size: 10px; vertical-align: middle;"></i>System Online
+            </span>
         </div>
         
-        <div class="row g-4 mb-4">
-            <div class="col-md-4">
-                <div class="card dash-card h-100 text-center py-4">
-                    <div class="stat-circle bg-light text-primary-theme">
-                        <i class="fas fa-box-open"></i>
+        <div class="row g-4 mb-5">
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="card glass-card h-100 border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="stat-icon bg-gradient-primary">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill">+12%</span>
                     </div>
-                    <h2 class="fw-bold mb-1">14</h2>
-                    <h6 class="text-muted mb-0">Pending Deliveries</h6>
+                    <h3 class="fw-bold mb-1">1,248</h3>
+                    <h6 class="text-muted fw-medium mb-0">Total Orders</h6>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card dash-card h-100 text-center py-4">
-                    <div class="stat-circle bg-light text-success">
-                        <i class="fas fa-check"></i>
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="card glass-card h-100 border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="stat-icon bg-gradient-secondary">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill">+8.5%</span>
                     </div>
-                    <h2 class="fw-bold mb-1">8</h2>
-                    <h6 class="text-muted mb-0">Completed Today</h6>
+                    <h3 class="fw-bold mb-1">$45,231</h3>
+                    <h6 class="text-muted fw-medium mb-0">Total Revenue</h6>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card dash-card h-100 text-center py-4">
-                    <div class="stat-circle bg-light text-warning">
-                        <i class="fas fa-route"></i>
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="card glass-card h-100 border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="stat-icon bg-gradient-accent">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill">-2.1%</span>
                     </div>
-                    <h2 class="fw-bold mb-1">2</h2>
-                    <h6 class="text-muted mb-0">Active Routes</h6>
+                    <h3 class="fw-bold mb-1">8,432</h3>
+                    <h6 class="text-muted fw-medium mb-0">Active Customers</h6>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="card glass-card h-100 border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="stat-icon bg-dark">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill">+15%</span>
+                    </div>
+                    <h3 class="fw-bold mb-1">142</h3>
+                    <h6 class="text-muted fw-medium mb-0">Active Deliveries</h6>
                 </div>
             </div>
         </div>
 
         <div class="row g-4">
             <div class="col-lg-8">
-                <div class="card dash-card">
-                    <div class="card-header bg-white border-0 pt-4 pb-0">
-                        <h5 class="fw-bold mb-0">Live Map Tracking</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="map-placeholder">
-                            <i class="fas fa-map-marked-alt fs-1 mb-3 text-muted"></i>
-                            <h5 class="fw-bold text-muted">Interactive Map Placeholder</h5>
-                            <p class="small text-muted mb-0">Google Maps or Mapbox integration goes here</p>
-                        </div>
-                    </div>
+                <div class="card glass-card border-0 p-4 h-100">
+                    <h5 class="fw-bold mb-4">Revenue Analytics</h5>
+                    <div id="revenueChart" style="min-height: 350px;"></div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card dash-card h-100">
-                    <div class="card-header bg-white border-0 pt-4 pb-0 d-flex justify-content-between align-items-center">
-                        <h5 class="fw-bold mb-0">Next Stops</h5>
+                <div class="card glass-card border-0 p-4 h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">Live Activity</h5>
+                        <button class="btn btn-sm btn-light rounded-circle shadow-sm"><i class="fas fa-ellipsis-v"></i></button>
                     </div>
-                    <div class="card-body">
-                        <div class="position-relative">
-                            <!-- Timeline line -->
-                            <div class="position-absolute h-100" style="left: 14px; top: 0; width: 2px; background-color: #dee2e6;"></div>
-                            
-                            <!-- Stop 1 -->
-                            <div class="d-flex mb-4 position-relative z-1">
-                                <div class="bg-primary-theme rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 30px; height: 30px; min-width: 30px;">
-                                    <span class="text-white small fw-bold">1</span>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">123 Main Street</h6>
-                                    <p class="text-muted small mb-1">Apt 4B, New York, NY</p>
-                                    <span class="badge bg-light text-dark border">#ORD-9910</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Stop 2 -->
-                            <div class="d-flex mb-4 position-relative z-1">
-                                <div class="bg-white border border-primary text-primary-theme rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 30px; height: 30px; min-width: 30px;">
-                                    <span class="small fw-bold">2</span>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">456 Oak Avenue</h6>
-                                    <p class="text-muted small mb-1">Brooklyn, NY</p>
-                                    <span class="badge bg-light text-dark border">#ORD-9908</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Stop 3 -->
-                            <div class="d-flex position-relative z-1">
-                                <div class="bg-white border border-primary text-primary-theme rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 30px; height: 30px; min-width: 30px;">
-                                    <span class="small fw-bold">3</span>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">789 Pine Road</h6>
-                                    <p class="text-muted small mb-1">Queens, NY</p>
-                                    <span class="badge bg-light text-dark border">#ORD-9885</span>
-                                </div>
-                            </div>
+                    <div class="timeline mt-2">
+                        <div class="timeline-item">
+                            <div class="timeline-badge"><i class="fas fa-check"></i></div>
+                            <h6 class="fw-bold mb-1">Order #8924 Delivered</h6>
+                            <p class="text-muted small mb-0">2 mins ago • New York, NY</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-badge"><i class="fas fa-box"></i></div>
+                            <h6 class="fw-bold mb-1">New Order Received</h6>
+                            <p class="text-muted small mb-0">15 mins ago • $240.00</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-badge"><i class="fas fa-truck"></i></div>
+                            <h6 class="fw-bold mb-1">Shipment Dispatched</h6>
+                            <p class="text-muted small mb-0">1 hour ago • Route B</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-badge"><i class="fas fa-user-plus"></i></div>
+                            <h6 class="fw-bold mb-1">New Vendor Registered</h6>
+                            <p class="text-muted small mb-0">3 hours ago • TechStore Inc.</p>
                         </div>
                     </div>
                 </div>
@@ -122,13 +180,51 @@
     </div>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('button, a.btn, .action-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.top.location.href = '../404.html';
-            });
-        });
+        var options = {
+            series: [{
+                name: 'Revenue',
+                data: [31, 40, 28, 51, 42, 109, 100]
+            }, {
+                name: 'Orders',
+                data: [11, 32, 45, 32, 34, 52, 41]
+            }],
+            chart: {
+                height: 350,
+                type: 'area',
+                fontFamily: 'Outfit, sans-serif',
+                toolbar: { show: false },
+                background: 'transparent'
+            },
+            colors: ['#00529B', '#e52e71'],
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.4,
+                    opacityTo: 0.05,
+                    stops: [0, 90, 100]
+                }
+            },
+            dataLabels: { enabled: false },
+            stroke: { curve: 'smooth', width: 3 },
+            xaxis: {
+                categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                axisBorder: { show: false },
+                axisTicks: { show: false }
+            },
+            yaxis: {
+                labels: { style: { colors: '#888' } }
+            },
+            grid: {
+                borderColor: 'rgba(0,0,0,0.05)',
+                strokeDashArray: 4,
+            },
+            theme: { mode: 'light' }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#revenueChart"), options);
+        chart.render();
     });
-</script>
+    </script>
 </body>
 </html>
