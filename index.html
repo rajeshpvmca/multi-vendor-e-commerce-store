@@ -42,6 +42,50 @@
         .view-all-link:hover i { transform: translateX(5px); }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        .category-img-wrapper {
+            overflow: hidden;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8f9fa;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .category-item:hover .category-img-wrapper {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 82, 155, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .category-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-item:hover .category-img-wrapper img {
+            transform: scale(1.1);
+        }
+        
+        .promo-img-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f8f9fa;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .promo-card:hover .promo-img-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
 </head>
 <body>
     <!-- Ultra-Modern Premium Preloader -->
@@ -171,50 +215,32 @@
             <div class="row row-cols-3 row-cols-md-6 text-center g-4">
                 <div class="col">
                     <a href="404.html" class="category-item text-dark">
-                        <div class="category-icon">
-                            <span class="material-symbols-outlined fs-1 text-primary">devices</span>
-                        </div>
-                        <span class="fw-semibold">Electronics</span>
+                        <div class="category-img-wrapper mx-auto mb-3"><img src="assets/images/index_categories/index_1.webp" alt="Electronics" loading="lazy"></div><span class="fw-bold">Electronics</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="404.html" class="category-item text-dark">
-                        <div class="category-icon">
-                            <span class="material-symbols-outlined fs-1 text-primary">apparel</span>
-                        </div>
-                        <span class="fw-semibold">Fashion</span>
+                        <div class="category-img-wrapper mx-auto mb-3"><img src="assets/images/index_categories/index_2.webp" alt="Fashion" loading="lazy"></div><span class="fw-bold">Fashion</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="404.html" class="category-item text-dark">
-                        <div class="category-icon">
-                            <span class="material-symbols-outlined fs-1 text-primary">chair</span>
-                        </div>
-                        <span class="fw-semibold">Home</span>
+                        <div class="category-img-wrapper mx-auto mb-3"><img src="assets/images/index_categories/index_3.webp" alt="Home" loading="lazy"></div><span class="fw-bold">Home</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="404.html" class="category-item text-dark">
-                        <div class="category-icon">
-                            <span class="material-symbols-outlined fs-1 text-primary">content_cut</span>
-                        </div>
-                        <span class="fw-semibold">Beauty</span>
+                        <div class="category-img-wrapper mx-auto mb-3"><img src="assets/images/index_categories/index_4.webp" alt="Beauty" loading="lazy"></div><span class="fw-bold">Beauty</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="404.html" class="category-item text-dark">
-                        <div class="category-icon">
-                            <span class="material-symbols-outlined fs-1 text-primary">fitness_center</span>
-                        </div>
-                        <span class="fw-semibold">Sports</span>
+                        <div class="category-img-wrapper mx-auto mb-3"><img src="assets/images/index_categories/index_5.webp" alt="Sports" loading="lazy"></div><span class="fw-bold">Sports</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="404.html" class="category-item text-dark">
-                        <div class="category-icon">
-                            <span class="material-symbols-outlined fs-1 text-primary">smart_toy</span>
-                        </div>
-                        <span class="fw-semibold">Toys</span>
+                        <div class="category-img-wrapper mx-auto mb-3"><img src="assets/images/index_categories/index_6.webp" alt="Toys" loading="lazy"></div><span class="fw-bold">Toys</span>
                     </a>
                 </div>
             </div>
@@ -515,7 +541,7 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <h5 class="fw-bold">Men's Casuals</h5>
+                            <img src="assets/images/index_categories/index_7.webp" alt="Men's Casuals" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Men's Casuals</h5>
                             <a href="404.html" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
                         </div>
                     </div>
@@ -523,7 +549,7 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <h5 class="fw-bold">Summer Dresses</h5>
+                            <img src="assets/images/index_categories/index_8.webp" alt="Summer Dresses" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Summer Dresses</h5>
                             <a href="404.html" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
                         </div>
                     </div>
@@ -559,16 +585,14 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">blender</span>
-                            <h5 class="fw-bold">Mixers & Juicers</h5>
+                            <img src="assets/images/index_categories/index_9.webp" alt="Mixers & Juicers" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Mixers & Juicers</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">microwave</span>
-                            <h5 class="fw-bold">Microwaves</h5>
+                            <img src="assets/images/index_categories/index_10.webp" alt="Microwaves" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Microwaves</h5>
                         </div>
                     </div>
                 </div>
@@ -594,7 +618,7 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <h5 class="fw-bold">Skincare Sets</h5>
+                            <img src="assets/images/index_categories/index_11.webp" alt="Skincare Sets" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Skincare Sets</h5>
                             <a href="404.html" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
                         </div>
                     </div>
@@ -602,7 +626,7 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <h5 class="fw-bold">Hair Care</h5>
+                            <img src="assets/images/index_categories/index_12.webp" alt="Hair Care" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Hair Care</h5>
                             <a href="404.html" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
                         </div>
                     </div>
@@ -610,7 +634,7 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <h5 class="fw-bold">Fragrances</h5>
+                            <img src="assets/images/index_categories/index_13.webp" alt="Fragrances" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Fragrances</h5>
                             <a href="404.html" class="btn btn-outline-primary btn-sm mt-2">Explore</a>
                         </div>
                     </div>
@@ -628,32 +652,28 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">menu_book</span>
-                            <h5 class="fw-bold">Bestselling Books</h5>
+                            <img src="assets/images/index_categories/index_14.webp" alt="Bestselling Books" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Bestselling Books</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">headphones</span>
-                            <h5 class="fw-bold">Audiobooks</h5>
+                            <img src="assets/images/index_categories/index_15.webp" alt="Audiobooks" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Audiobooks</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">movie</span>
-                            <h5 class="fw-bold">Movies & Shows</h5>
+                            <img src="assets/images/index_categories/index_16.webp" alt="Movies & Shows" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Movies & Shows</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">music_note</span>
-                            <h5 class="fw-bold">Vinyl Records</h5>
+                            <img src="assets/images/index_categories/index_17.webp" alt="Vinyl Records" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Vinyl Records</h5>
                         </div>
                     </div>
                 </div>
@@ -670,32 +690,28 @@
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">sports_tennis</span>
-                            <h5 class="fw-bold">Racquet Sports</h5>
+                            <img src="assets/images/index_categories/index_18.webp" alt="Racquet Sports" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Racquet Sports</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">fitness_center</span>
-                            <h5 class="fw-bold">Gym Equipment</h5>
+                            <img src="assets/images/index_categories/index_19.webp" alt="Gym Equipment" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Gym Equipment</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">directions_run</span>
-                            <h5 class="fw-bold">Running Shoes</h5>
+                            <img src="assets/images/index_categories/index_20.webp" alt="Running Shoes" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Running Shoes</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col" style="min-width: 280px;">
                     <div class="card h-100 border-0 shadow-sm promo-card d-flex align-items-center justify-content-center">
                         <div class="text-center p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary mb-2">pedal_bike</span>
-                            <h5 class="fw-bold">Cycling</h5>
+                            <img src="assets/images/index_categories/index_21.webp" alt="Cycling" class="mb-3 promo-img-wrapper"><h5 class="fw-bold">Cycling</h5>
                         </div>
                     </div>
                 </div>
